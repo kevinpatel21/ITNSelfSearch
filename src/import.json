@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "productName": "Pepsi",
+      "productPrice": 3.99,
+      "productTags": [
+        "Blue",
+        "Beverage",
+        "Soda"
+      ]
+    },
+    {
+      "productName": "Apple",
+      "productPrice": 1.99,
+      "productTags": [
+        "Red",
+        "Fruit",
+        "Food"
+      ]
+    },
+    {
+      "productName": "Cheese Pizza",
+      "productPrice": 7.99,
+      "productTags": [
+        "Yellow",
+        "Food",
+        "Frozen"
+      ]
+    }
+  ],
+
+  "adminPasswords": [
+    "123",
+    "XYZ",
+    "Hello World"
+  ]
+}
