@@ -52,7 +52,8 @@ public class Product implements Cloneable {
         productTags.add(inputTag);
     }
 
-
+    public void setProductTags(ArrayList<String> inputTags)
+        {}
 
     public Double getProductPrice(){
         return productPrice;
@@ -65,6 +66,7 @@ public class Product implements Cloneable {
     public void setProductPrice(Double inputPrice){
         productPrice = inputPrice;
     }
+
 
     //a few methods still need to be added, refer to the design docs for more info
 }
