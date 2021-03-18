@@ -33,7 +33,7 @@ public class Product implements Cloneable {
 
     /**
      * To make a product clone
-     * @return
+     * @return a clone of the product
      */
     public Product clone() {
         try {
@@ -48,7 +48,7 @@ public class Product implements Cloneable {
 
     /**
      * Returns product name
-     * @return
+     * @return the product name
      */
     public String getProductName() {
         return productName;
@@ -56,7 +56,7 @@ public class Product implements Cloneable {
 
     /**
      * returns product tags
-     * @return
+     * @return a ArrayList of strings with product tags
      */
     public ArrayList<String> getProductTags() {
         return (ArrayList<String>) productTags.clone();
@@ -82,7 +82,7 @@ public class Product implements Cloneable {
 
     /**
      * returns product price
-     * @return
+     * @return product price
      */
     public Double getProductPrice() {
         return productPrice;
@@ -115,7 +115,7 @@ public class Product implements Cloneable {
 
     /**
      * returns product location coordinates
-     * @return
+     * @return product location
      */
     public Coordinate getProductLocation()
     {

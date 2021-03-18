@@ -10,6 +10,14 @@ public class User {
     boolean adminMode;
     String defaultPassword;
 
+    /**
+     * Compares the input password to the
+     * arraylist of correct passwords and returns
+     * true if it matches
+     * @param inputPassword
+     * @param correctPassword
+     * @return
+     */
     public boolean verifyPassword(String inputPassword , ArrayList<String> correctPassword)
     {
 
