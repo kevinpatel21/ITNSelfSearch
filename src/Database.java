@@ -94,6 +94,14 @@ public class Database {
         return (ArrayList<Product>) productCatalogue.clone();
     }
 
+    /**
+     * Function used to retrieve admin passwords
+     * @return Returns ArrayList of admin passwords
+     */
+    public ArrayList<String> getPasswords(){
+        return (ArrayList<String>) adminPasswords;
+    }
+
 
     //Display Database
     /**
