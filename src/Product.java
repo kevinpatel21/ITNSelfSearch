@@ -6,7 +6,13 @@ public class Product implements Cloneable {
     private ArrayList<String> productTags;
     Coordinate productLocation;
 
-
+    /**
+     * sets product name and price as well as create
+     * arrayList for product tags and and new coordinate
+     * for product location
+     * @param inputName
+     * @param inputPrice
+     */
     public Product(String inputName, double inputPrice) {
         productName = inputName;
         productPrice = inputPrice;
@@ -14,6 +20,10 @@ public class Product implements Cloneable {
         productLocation = new Coordinate(0, 0);
     }
 
+    /**
+     * When no parameters are provided everything
+     * is initialized to unknown
+     */
     public Product() {
         productName = "Unknown";
         productPrice = 0.00;
@@ -21,6 +31,10 @@ public class Product implements Cloneable {
         productLocation = new Coordinate(0, 0);
     }
 
+    /**
+     * To make a product clone
+     * @return
+     */
     public Product clone() {
         try {
             Product ProductClone = (Product) super.clone();
@@ -32,49 +46,85 @@ public class Product implements Cloneable {
         }
     }
 
+    /**
+     * Returns product name
+     * @return
+     */
     public String getProductName() {
         return productName;
     }
 
+    /**
+     * returns product tags
+     * @return
+     */
     public ArrayList<String> getProductTags() {
         return (ArrayList<String>) productTags.clone();
     }
 
 
+    /**
+     * sets product tags when provided an arraylist
+     * @param inputTags
+     */
     public void setProductTags(ArrayList<String> inputTags) {
         productTags = (ArrayList<String>) inputTags.clone();
     }
 
+    /**
+     * sets a single tag when provided one string input
+     * @param inputTag
+     */
     public void setProductTag(String inputTag) {
         productTags.add(inputTag);
     }
 
 
-
-
-
+    /**
+     * returns product price
+     * @return
+     */
     public Double getProductPrice() {
         return productPrice;
     }
 
+    /**
+     * sets the product name
+     * @param inputName
+     */
     public void setProductName(String inputName) {
         productName = inputName;
     }
 
+    /**
+     * sets the product price
+     * @param inputPrice
+     */
     public void setProductPrice(Double inputPrice) {
         productPrice = inputPrice;
     }
 
+    /**
+     * sets the product location
+     * @param inputLocation
+     */
     public void setProductLocation(Coordinate inputLocation)
     {
         productLocation = inputLocation;
     }
 
+    /**
+     * returns product location coordinates
+     * @return
+     */
     public Coordinate getProductLocation()
     {
         return productLocation;
     }
 
+    /**
+     * Prints the product name, price, tags, and location
+     */
     public void printProductInfo()
     {
         System.out.println("Product Name: " + productName);
