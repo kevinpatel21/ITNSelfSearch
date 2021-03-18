@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Database is responsible for storing and sending essential information in software.
@@ -11,7 +12,7 @@ public class Database {
     //Attributes
     private ArrayList<Product> productCatalogue;//ArrayList that stores Products
     private ArrayList<String> adminPasswords;//ArrayList that stores passwords
-    Map storeMap;//Map of the store
+    String storeMap;//Map of the store
 
 
     //Constructors
@@ -23,7 +24,7 @@ public class Database {
         productCatalogue = new ArrayList<Product>();
         adminPasswords = new ArrayList<String>();
         adminPasswords.add(defaultPassword);
-        storeMap = new Map();
+        storeMap = "";
     }
     /**
      * Constructor for Database class, requires an admin password by default
@@ -37,7 +38,7 @@ public class Database {
         adminPasswords = new ArrayList<String>();
         importCall.importDatabase(productCatalogue, adminPasswords);
         adminPasswords.add(defaultPassword);
-        storeMap = new Map();
+        storeMap = "";
     }
 
 
@@ -62,8 +63,8 @@ public class Database {
      * Function used to save current store map to database
      * @param inputMap Map that will be stored in the database
      */
-    public void setStoreMap(Map inputMap) {
-        storeMap = new Map(inputMap);
+    public void setStoreMap(String inputMap){
+        storeMap = inputMap;
     }
 
 
@@ -72,8 +73,8 @@ public class Database {
      * Function used to retrieve a map of the store
      * @return Returns currently stored map in the database
      */
-    public Map getStoreMap(){
-        return storeMap.clone();
+    public String getStoreMap(){
+        return storeMap;
     }
 
     /**
@@ -122,7 +123,23 @@ public class Database {
         for (String password: adminPasswords){
             System.out.println(password);
         }
-
         //Display map??
+    }
+
+    //Checkers
+    /**
+     * Function used to check if Product searched by name is in database
+     * Must be ran BEFORE retrieveByTags method is called
+     * @return Returns true if product was found, false if not
+     */
+    public boolean validProductName(String inputName){
+        boolean  productFound = false;
+
+        for(Product product: productCatalogue){
+            if(product.getProductName().compareTo(inputName) == 0){
+                productFound = true;
+            }
+        }
+        return productFound;
     }
 }
