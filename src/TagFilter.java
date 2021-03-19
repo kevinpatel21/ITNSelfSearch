@@ -1,7 +1,9 @@
 import java.lang.*;
 import java.util.ArrayList;
 
-
+/**
+ * This class Takes in a ArrayList of inputTags and determines which products it belongs too
+ */
 public class TagFilter
 {
 
