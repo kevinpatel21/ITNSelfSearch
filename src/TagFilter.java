@@ -10,10 +10,9 @@ public class TagFilter
      * Function used to retrieve multiple products by an input of tags
      * @param inputTags ArrayList of tags that the database will use to search for Products
      * @param d We need access to database so that we can use the getProductCatalogue and also access to validProductName
-     * @param p We need access to the product that we
      * @return Returns ArrayList Products if found, empty ArrayList otherwise
      */
-    public ArrayList<Product> retrieveByTags(ArrayList<String> inputTags, Database d, Product p)
+    public ArrayList<Product> retrieveByTags(ArrayList<String> inputTags, Database d)
     {
         //ArrayList that will hold related Products containing specified tags
         ArrayList<Product> matchingProducts = new ArrayList<Product>();
