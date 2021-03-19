@@ -3,6 +3,11 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args){
+
+        ArrayList<String> parsedTags = new ArrayList<String>();
+        ArrayList<Product> retrievedProducts = new ArrayList<Product>();
+
+
         //Creating Database
         System.out.print("Enter file path: ");
         Scanner input = new Scanner(System.in);
@@ -46,15 +51,18 @@ public class main {
         userinput = input.nextLine();
         System.out.println("Your input was: " + userinput + "\n");
         Scanner stringParser = new Scanner(userinput);
-        ArrayList<String> parsedTags = new ArrayList<String>();
-        ArrayList<Product> retrievedProducts = new ArrayList<Product>();
 
+        // This while loop is parsing our stringParser that has the userInput inside of it and adding it to the arraylist
         while(stringParser.hasNext())
         {
             parsedTags.add(stringParser.next());
         }
 
+        // Making a call to retrieveByTags and sending it the arrayList of parsed tags
+        // Then the retrieveByTags function is going to locate a product with that tag and put it into the retrievedProducts array list
         retrievedProducts = tf.retrieveByTags(parsedTags, testDatabase);
+
+        System.out.println("Items with the tag(s) " + userinput + ":");
 
         for (Product product: retrievedProducts){
             System.out.print(product.getProductName() + ": " + product.getProductPrice());
