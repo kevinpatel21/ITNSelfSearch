@@ -11,6 +11,9 @@ public class Main {
         DatabaseImport newDatabase = new DatabaseImport(userinput);
         Database testDatabase = new Database("Password", newDatabase);
 
+        // Added these two objects so that we can access NameFilter, and TagFilter functions
+        NameFilter nf = new NameFilter();
+        TagFilter tf = new TagFilter();
 
         //Displaying Database
         testDatabase.printDatabase();
@@ -25,7 +28,7 @@ public class Main {
         System.out.println("Your input was: " + userinput + "\n");
 
         if (testDatabase.validProductName(userinput)){
-            Product userProduct = testDatabase.retrieveByName(userinput);
+            Product userProduct = nf.retrieveByName(userinput, testDatabase);
 
             System.out.print(userProduct.getProductName() + ": " + userProduct.getProductPrice());
 
@@ -51,7 +54,7 @@ public class Main {
             parsedTags.add(stringParser.next());
         }
 
-        retrievedProducts = testDatabase.retrieveByTags(parsedTags);
+        retrievedProducts = tf.retrieveByTags(parsedTags, testDatabase);
 
         for (Product product: retrievedProducts){
             System.out.print(product.getProductName() + ": " + product.getProductPrice());
