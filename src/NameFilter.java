@@ -1,6 +1,12 @@
 import java.lang.*;
 import java.util.ArrayList;
 
+
+/**
+ * NameFilter is responsible for searching the database for the inputName that the user will enter into the keyboard
+ * It will also take in the Database as a parameter so that it can look into the correct ProductCatalogue
+ *
+ */
 public class NameFilter
 {
     /**
