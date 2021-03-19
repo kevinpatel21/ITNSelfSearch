@@ -66,19 +66,6 @@ public class main {
             System.out.println();
         }
 
-        //Testing getProductCatalogue
-        System.out.println("Testing getProductCatalogue. The cloned version should NOT include the new product.");
-        ArrayList<Product> previousProducts = testDatabase.getProductCatalogue();
-        ArrayList<String> sandalTags = new ArrayList<String>();
-        sandalTags.add("Clothing");
-        sandalTags.add("Shoes");
-        sandalTags.add("Leather");
-        Product Sandals = new Product("Sandals", 4.99);
-        Sandals.setProductTags(sandalTags);
-
-
-
-
     }
 
     //Test Tool Functions
