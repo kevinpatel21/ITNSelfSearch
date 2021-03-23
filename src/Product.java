@@ -4,6 +4,7 @@ public class Product implements Cloneable {
     private String productName;
     private Double productPrice;
     private ArrayList<String> productTags;
+    private int productTagNumber;
     Coordinate productLocation;
 
     /**
@@ -29,6 +30,7 @@ public class Product implements Cloneable {
         productPrice = 0.00;
         productTags = new ArrayList<String>();
         productLocation = new Coordinate(0, 0);
+        productTagNumber = 0;
     }
 
     /**
@@ -131,6 +133,16 @@ public class Product implements Cloneable {
         System.out.println("Product Price: "+ productPrice);
         System.out.println("Product Tags: " + productTags);
         System.out.println("Product Location: " + productLocation);
+    }
+
+    public void setProductTagNumber()
+    {
+        productTagNumber = productTags.size();
+    }
+
+    public int getProductTagNumber()
+    {
+        return productTagNumber;
     }
 
 
