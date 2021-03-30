@@ -13,6 +13,7 @@ import java.util.Iterator;
 public class DatabaseImport {
     //Attributes
     private String filePath;
+    private boolean imported;
 
 
     //Constructors
@@ -22,6 +23,7 @@ public class DatabaseImport {
      */
     public DatabaseImport(String inputPath){
         filePath = inputPath;
+        imported = false;
     }
 
 
@@ -35,7 +37,9 @@ public class DatabaseImport {
      * @param databasePasswords adminPasswords ArrayList from Database Object
      */
     public void importDatabase(ArrayList<Product> databaseProducts, ArrayList<String> databasePasswords){
-        JSONParser fileParser = new JSONParser();
+        databasePasswords.clear();//Ensures that all previous passwords are erased
+
+        JSONParser fileParser = new JSONParser();//Variable used to parse input file contents
 
         try{
             //Setting up file for parsing
@@ -62,7 +66,7 @@ public class DatabaseImport {
                     importProduct.setProductTag(tagIterator.next());
                 }
 
-                databaseProducts.add(importProduct);
+                databaseProducts.add(importProduct.clone());
             }
 
             //Parsing admin passwords
@@ -73,9 +77,23 @@ public class DatabaseImport {
                 databasePasswords.add(passwordIterator.next());
             }
 
+            if(databasePasswords.size() == 0)
+                databasePasswords.add("");
+
+            imported = true;
         }
         catch(IOException | ParseException e){
             e.printStackTrace();
         }
     }
+
+    //Functionality
+    /**
+     * Function used to determine if an input file was parsed successfully
+     * @return true if file was parsed, false if not
+     */
+    public boolean wasImported(){
+        return imported;
+    }
+
 }

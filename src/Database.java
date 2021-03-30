@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -8,7 +10,7 @@ import java.util.Map;
  * Finds and returns a Product by name.
  * Finds and returns ArrayList of Products by associated tags.
  */
-public class Database {
+public class Database implements Cloneable{
     //Attributes
     private ArrayList<Product> productCatalogue;//ArrayList that stores Products
     private ArrayList<String> adminPasswords;//ArrayList that stores passwords
@@ -26,18 +28,14 @@ public class Database {
         adminPasswords.add(defaultPassword);
         storeMap = "";
     }
+
     /**
-     * Constructor for Database class, requires an admin password by default
-     * requires a DatabaseImport Object IF making new import of database
-     * used only when importing products into database
-     * @param defaultPassword Default password used to access database
-     * @param importCall The import object retrieving data from import JSON file
+     * Constructor for Database class, ONLY USE THIS WHEN IMPORTING
      */
-    public Database(String defaultPassword, DatabaseImport importCall){
+    public Database(){
         productCatalogue = new ArrayList<Product>();
         adminPasswords = new ArrayList<String>();
-        importCall.importDatabase(productCatalogue, adminPasswords);
-        adminPasswords.add(defaultPassword);
+        adminPasswords.add("");
         storeMap = "";
     }
 
@@ -91,7 +89,7 @@ public class Database {
      * @return Returns Product catalogue
      */
     public ArrayList<Product> getProductCatalogue(){
-        return (ArrayList<Product>) productCatalogue.clone();
+        return (ArrayList<Product>) productCatalogue;//GOT RID OF CLONE!!!
     }
 
     /**
@@ -100,8 +98,15 @@ public class Database {
      */
     public ArrayList<String> getPasswords(){
         return (ArrayList<String>) adminPasswords;
-    }
+    }//GOT RID OF CLONE!!!
 
+    /**
+     * Function used to retrieve number of passwords in database
+     * @return Returns number of passwords stored in database
+     */
+    public int getPasswordCounter(){
+        return adminPasswords.size();
+    }
 
     //Display Database
     /**
@@ -110,29 +115,21 @@ public class Database {
      * Displays all Products and associated information
      * Displays all admin passwords
      */
-    public void printDatabase(){
+    public void displayDatabase(){
+        ///Setting up the frame for viewing
+        JFrame displayWindow = new JFrame();
+        DatabaseDisplay contentPanel = new DatabaseDisplay(this);//Panel that will contain all database contents
 
-        System.out.println("Number of Items in database: " + getProductCounter() + "\n \n");
+        displayWindow.setLayout(new FlowLayout());
+        displayWindow.setSize(300, 300);//Setting size of frame
+        displayWindow.setTitle("Database Viewer");//Title seen at top border of JFrame window
+        displayWindow.setVisible(true);//we want to see the frame right?
+        displayWindow.setLocationRelativeTo(null);//Centers window!!
+        displayWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Allows the frame to be closed
+        displayWindow.add(contentPanel);
 
-        System.out.println("Product List" + "\n");
-
-        for (Product product: productCatalogue){
-            System.out.print(product.getProductName() + ": " + product.getProductPrice());
-
-            for(String tag: product.getProductTags()){
-                System.out.print(", " + tag);
-            }
-
-            System.out.println();
-        }
-
-        System.out.println("\n\nAdmin passwords\n");
-
-        for (String password: adminPasswords){
-            System.out.println(password);
-        }
-        //Display map??
     }
+
 
     //Checkers
     /**
@@ -149,5 +146,23 @@ public class Database {
             }
         }
         return productFound;
+    }
+
+
+    //Functionality
+    /**
+     * To make a database clone
+     * @return a clone of the database
+     */
+    public Database clone() {
+        try {
+            Database databaseClone = (Database) super.clone();
+            databaseClone.adminPasswords = (ArrayList<String>) adminPasswords.clone();
+            databaseClone.productCatalogue = (ArrayList<Product>) productCatalogue.clone();
+
+            return databaseClone;
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 }
