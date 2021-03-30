@@ -26,6 +26,14 @@
         "Food",
         "Frozen"
       ]
+    },
+    {
+      "productName": "Cheese Pizza2",
+      "productPrice": 7.99,
+      "productTags": [
+        "Yellow",
+        "Food"
+      ]
     }
   ],
 
