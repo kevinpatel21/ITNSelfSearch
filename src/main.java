@@ -1,5 +1,7 @@
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,7 +12,7 @@ public class main {
 //        Scanner input = new Scanner(System.in);
 //        String userinput = input.nextLine();
 //        System.out.println("Your input was: " + userinput + "\n");
-//        DatabaseImport newDatabase = new DatabaseImport(userinput);
+  //      DatabaseImport newDatabase = new DatabaseImport(userinput);
 
 //        Database testDatabase = new Database("Password", newDatabase);
 
@@ -92,27 +94,29 @@ public class main {
 //
 //
 //        //Creating the frame
-//        JFrame testframe = new JFrame();
+       // JFrame testframe = new JFrame();
 //
 //        //NOTE: JFrames can house Pannels. Pannels house components such as buttons and text fields. You can add those components directly to the frame without a pannel if desired.
 //
 //        //Creating components
-//        final JButton yesButton = new JButton("Yes");
-//        final JButton noButton = new JButton("No");
-//
-//        final int textboxSize = 20;
-//        final JTextField testField = new JTextField(textboxSize);//Parameter specifies text box size
-//        testField.setText("I am a text field!");
-//
+      // final JButton yesButton = new JButton("Yes");
+      // final JButton noButton = new JButton("No");
+
+      //  final int textboxSize = 20;
+      //  final JTextField testField = new JTextField(textboxSize);//Parameter specifies text box size
+      //  testField.setText("I am a text field!");
+
 //        //Adding things to a frame
-//        testframe.setLayout(new FlowLayout());//Making a layout/canvas to add the components to on the frame
-//        testframe.add(yesButton);
-//        testframe.add(noButton);
-//        testframe.add(testField);
+     //   testframe.setLayout(new FlowLayout());//Making a layout/canvas to add the components to on the frame
+
+     //    testframe.add(yesButton);
+      //   testframe.add(noButton);
+      // testframe.add(testField);
+      //  testframe.setVisible(true);
 //
 //        //Packaging the frame, making sure it works and looks proper
-//        //testframe.pack();//makes the frame big enough for the components that ill be adding
-//        testframe.setSize(300, 300);//Setting size of frame
+      //  testframe.pack();//makes the frame big enough for the components that ill be adding
+      //  testframe.setSize(300, 300);//Setting size of frame
 //        testframe.setTitle("Testing out JFrames!");//Title seen at top border of JFrame window
 //        testframe.setVisible(true);//we want to see the frame right?
 //        testframe.setLocationRelativeTo(null);//Centers window!!
@@ -173,6 +177,7 @@ public class main {
 //        testframe.add(buttons);
 
 
+
         //Creating a database for the software to use
         ActiveDatabase testDatabase = new ActiveDatabase();
         //Creating a class for importing a new database
@@ -186,9 +191,13 @@ public class main {
                 testDatabase.updateDatabase(testControl.overrideDatabase());
                 testDatabase.displayActiveDatabase();
             }
-        });
 
+        });
+        System.out.println(testDatabase.getProducts().size());
+        ProductGUI test = new ProductGUI(testDatabase.getProducts());
     }
+
+
 
     //Test Tool Functions
     public static ArrayList<String> createTagList (String tag1, String tag2, String tag3){
@@ -201,6 +210,11 @@ public class main {
         return (ArrayList<String>) newTagList.clone();
     }
 
+
+
     //"C:\\project testing ground\\src\\import.json"
 
+
 }
+
+
