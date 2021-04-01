@@ -42,7 +42,7 @@ public class ProductGUI extends JFrame {
                 productName = productField.getText();
 
 
-                System.out.println(x.size());
+                //System.out.println(x.size());
 
 
                // System.out.println(x.get(0).getProductName());
