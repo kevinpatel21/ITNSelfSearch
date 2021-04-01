@@ -191,10 +191,26 @@ public class main {
         /**
          * This is where the program calls system out on product array size after import is completed
          */
-        newDyn.addChangeListener(new ChangeListener() {
+        newDyn.addImportedListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
                 System.out.println(newDyn.getProductSize());
+
+                /**
+                 * Kevin, put your GUI test code here
+                 */
+
+                //Use this to get ActiveDatabase
+                newDyn.getTestDatabase();
+
+
+
+
+
+                //ProductGUI test = new ProductGUI(testDatabase.getProducts());
+                /**
+                 *
+                 */
 
             }});
 //

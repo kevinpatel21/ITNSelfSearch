@@ -8,7 +8,7 @@ public class DynamicMain extends JFrame {
     private ActiveDatabase testDatabase = new ActiveDatabase();
     //Creating a class for importing a new database
     private ImportController testControl = new ImportController();
-    final ArrayList<ChangeListener> listeners = new ArrayList<ChangeListener>();//ArrayList of listeners
+    final ArrayList<ChangeListener> importlListeners = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     public DynamicMain(){
 
@@ -20,27 +20,7 @@ public class DynamicMain extends JFrame {
                 testDatabase.displayActiveDatabase();
                 testDatabase.updateDatabase(testControl.overrideDatabase());
                 testDatabase.displayActiveDatabase();
-
-
-
-                /**
-                 * Kevin, put your GUI test code here
-                 */
-
-
-
-
-
-
-
-                //ProductGUI test = new ProductGUI(testDatabase.getProducts());
-                /**
-                 *
-                 */
-
-
             }
-
         });
     }
 
@@ -48,7 +28,11 @@ public class DynamicMain extends JFrame {
         return testDatabase.getProducts().size();
     }
 
-    public void addChangeListener(ChangeListener newListener){
-        listeners.add(newListener);
+    public void addImportedListener(ChangeListener newListener){
+        importlListeners.add(newListener);
+    }
+
+    public ActiveDatabase getTestDatabase() {
+        return testDatabase;
     }
 }
