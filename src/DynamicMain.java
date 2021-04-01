@@ -8,7 +8,7 @@ public class DynamicMain extends JFrame {
     private ActiveDatabase testDatabase = new ActiveDatabase();
     //Creating a class for importing a new database
     private ImportController testControl = new ImportController();
-    final ArrayList<ChangeListener> importlListeners = new ArrayList<ChangeListener>();//ArrayList of listeners
+    final ArrayList<ChangeListener> importListeners = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     public DynamicMain(){
 
@@ -20,6 +20,12 @@ public class DynamicMain extends JFrame {
                 testDatabase.displayActiveDatabase();
                 testDatabase.updateDatabase(testControl.overrideDatabase());
                 testDatabase.displayActiveDatabase();
+
+                ChangeEvent importready = new ChangeEvent(this);
+
+                for(ChangeListener listener: importListeners){
+                    listener.stateChanged(importready);
+                }
             }
         });
     }
@@ -29,7 +35,7 @@ public class DynamicMain extends JFrame {
     }
 
     public void addImportedListener(ChangeListener newListener){
-        importlListeners.add(newListener);
+        importListeners.add(newListener);
     }
 
     public ActiveDatabase getTestDatabase() {

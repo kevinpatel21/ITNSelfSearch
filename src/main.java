@@ -194,7 +194,7 @@ public class main {
         newDyn.addImportedListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                System.out.println(newDyn.getProductSize());
+                System.out.println(newDyn.getTestDatabase().getProducts().size());
 
                 /**
                  * Kevin, put your GUI test code here
