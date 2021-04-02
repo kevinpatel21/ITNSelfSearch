@@ -22,6 +22,7 @@ public class DatabaseDisplay extends JPanel {
 
         for (Product product: inputDatabase.getProductCatalogue()){
             databaseContents += product.getProductName() + ": " + product.getProductPrice();
+            databaseContents += ", (" + product.getProductLocation().getX() + ", " + product.productLocation.getY() + ")";
 
             for(String tag: product.getProductTags()){
                 databaseContents += ", " + tag;
@@ -35,6 +36,8 @@ public class DatabaseDisplay extends JPanel {
         for (String password: inputDatabase.getPasswords()){
             databaseContents += password + "\n";
         }
+
+        databaseContents += "\n\nKiosk Coordinate: (" + inputDatabase.getKioskLocation().getX() + ", " + inputDatabase.getKioskLocation().getY() + ")\n";//Code breaks here at getKioskLocation
 
         //Setting up the look/design of the panel
         databasePreview = new JTextArea(databaseContents);

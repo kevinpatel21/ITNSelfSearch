@@ -26,6 +26,15 @@ public class DynamicMain extends JFrame {
                 for(ChangeListener listener: importListeners){
                     listener.stateChanged(importready);
                 }
+
+                /**
+                 * Add Main Menu Call Here
+                 */
+
+                //Add namefilter changelistener to main
+                //Add tag filter changelistener to main
+                //Add Admin tag filter here
+
             }
         });
     }

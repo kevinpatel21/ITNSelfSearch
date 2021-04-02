@@ -58,7 +58,7 @@ public class ImportController extends JFrame{
                     public void actionPerformed(ActionEvent e) {
                         ChangeEvent importable = new ChangeEvent(this);
                         newDatabase = importWindow.getNewImport().clone();
-                        importWindow.clearNewImport();;
+                        importWindow.clearNewImport();
 
                         for(ChangeListener listener: listeners){
                             listener.stateChanged(importable);

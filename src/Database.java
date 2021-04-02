@@ -15,6 +15,7 @@ public class Database implements Cloneable{
     private ArrayList<Product> productCatalogue;//ArrayList that stores Products
     private ArrayList<String> adminPasswords;//ArrayList that stores passwords
     String storeMap;//Map of the store
+    private ArrayList<Coordinate> kioskLocation;//Coordinate of kiosk
 
 
     //Constructors
@@ -27,6 +28,8 @@ public class Database implements Cloneable{
         adminPasswords = new ArrayList<String>();
         adminPasswords.add(defaultPassword);
         storeMap = "";
+        kioskLocation = new ArrayList<Coordinate>();
+        kioskLocation.add(0, new Coordinate());
     }
 
     /**
@@ -37,6 +40,8 @@ public class Database implements Cloneable{
         adminPasswords = new ArrayList<String>();
         adminPasswords.add("");
         storeMap = "";
+        kioskLocation = new ArrayList<Coordinate>();
+        kioskLocation.add(0, new Coordinate());
     }
 
 
@@ -63,6 +68,15 @@ public class Database implements Cloneable{
      */
     public void setStoreMap(String inputMap){
         storeMap = inputMap;
+    }
+
+    /**
+     * Function used to save kiosk coordinate/locations
+     * @param inputCoordinate input coordinate of kiosk
+     */
+    public void setKioskLocation(Coordinate inputCoordinate){
+        kioskLocation.clear();
+        kioskLocation.add(inputCoordinate);
     }
 
 
@@ -107,6 +121,19 @@ public class Database implements Cloneable{
     public int getPasswordCounter(){
         return adminPasswords.size();
     }
+
+    /**
+     * Function used to retrieve kiosk coordinate
+     * @return Returns Coordinate of kiosk containing coordinate
+     */
+    public Coordinate getKioskLocation(){ return kioskLocation.get(0).clone(); }
+
+    /**
+     * Function used to retrieve kioskLocation ArrayList, needed for DatabaseImport
+     * @return Returns ArrayList containing coordinate, NOT A COPY/CLONE
+     */
+    public ArrayList<Coordinate> getKioskLocationArrayList(){ return kioskLocation; }
+
 
     //Display Database
     /**
@@ -159,6 +186,7 @@ public class Database implements Cloneable{
             Database databaseClone = (Database) super.clone();
             databaseClone.adminPasswords = (ArrayList<String>) adminPasswords.clone();
             databaseClone.productCatalogue = (ArrayList<Product>) productCatalogue.clone();
+            databaseClone.kioskLocation = (ArrayList<Coordinate>) kioskLocation.clone();
 
             return databaseClone;
         } catch (CloneNotSupportedException e) {

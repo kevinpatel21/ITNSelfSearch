@@ -53,6 +53,15 @@ public class ActiveDatabase {
         return activeDatabase.get(0).getProductCatalogue();
     }
 
+    //Gets
+    /**
+     * Get method used to access the location of current kiosk
+     * @return Returns a copy of kiosk location coordinate
+     */
+    public Coordinate getKioskLocation(){
+        return activeDatabase.get(0).getKioskLocation().clone();
+    }
+
 
     //Functionality
     /**

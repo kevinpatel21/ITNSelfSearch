@@ -3,6 +3,8 @@
     {
       "productName": "Pepsi",
       "productPrice": 3.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
       "productTags": [
         "Blue",
         "Beverage",
@@ -12,6 +14,8 @@
     {
       "productName": "Apple",
       "productPrice": 1.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
       "productTags": [
         "Red",
         "Fruit",
@@ -21,6 +25,8 @@
     {
       "productName": "Cheese Pizza",
       "productPrice": 7.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
       "productTags": [
         "Yellow",
         "Food",
@@ -30,6 +36,8 @@
     {
       "productName": "Cheese Pizza2",
       "productPrice": 7.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
       "productTags": [
         "Yellow",
         "Food"
@@ -41,5 +49,8 @@
     "123",
     "XYZ",
     "Hello World"
-  ]
+  ],
+
+  "kioskLocationX": "1",
+  "kioskLocationY": "2"
 }

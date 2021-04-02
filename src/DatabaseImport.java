@@ -36,8 +36,10 @@ public class DatabaseImport {
      * @param databaseProducts productCatalogue ArrayList from Database Object
      * @param databasePasswords adminPasswords ArrayList from Database Object
      */
-    public void importDatabase(ArrayList<Product> databaseProducts, ArrayList<String> databasePasswords){
+    public void importDatabase(ArrayList<Product> databaseProducts, ArrayList<String> databasePasswords, ArrayList<Coordinate> kioskCoordinate){
         databasePasswords.clear();//Ensures that all previous passwords are erased
+        databaseProducts.clear();//Ensures that all previous products are erased
+        kioskCoordinate.clear();//Ensures that previous kiosk coordinate is erased
 
         JSONParser fileParser = new JSONParser();//Variable used to parse input file contents
 
@@ -58,6 +60,14 @@ public class DatabaseImport {
                 importProduct.setProductName((String) currentProduct.get("productName"));
                 importProduct.setProductPrice((Double) currentProduct.get("productPrice"));
 
+                //Below is getting product location. This JSON reader doesn't read ints apparently, only Longs.
+                //We need int values for coordinates, so I had to convert string to int (tedious, I know...)
+                String tempLocationX = (String) currentProduct.get("productLocationX");
+                String tempLocationY = (String) currentProduct.get("productLocationY");
+                int productLocationX = Integer.valueOf(tempLocationX);
+                int productLocationY = Integer.valueOf(tempLocationY);
+                importProduct.setProductLocation(new Coordinate(productLocationX, productLocationY));
+
                 //Parsing individual Product tags
                 JSONArray importedProductTags = (JSONArray) currentProduct.get("productTags");
                 Iterator<String> tagIterator = importedProductTags.iterator();
@@ -77,6 +87,15 @@ public class DatabaseImport {
                 databasePasswords.add(passwordIterator.next());
             }
 
+            //Below is getting kiosk location. This JSON reader doesn't read ints apparently, only Longs.
+            //We need int values for coordinates, so I had to convert string to int (tedious, I know...)
+            String tempLocationX = (String) jsonObject.get("kioskLocationX");
+            String tempLocationY = (String) jsonObject.get("kioskLocationY");
+            int productLocationX = Integer.valueOf(tempLocationX);
+            int productLocationY = Integer.valueOf(tempLocationY);
+            kioskCoordinate.add(0, new Coordinate(productLocationX, productLocationY));
+
+            //Checking if no passwords were read. If no passwords read, white space is added as a password (prevents admin from locking themselves out of software)
             if(databasePasswords.size() == 0)
                 databasePasswords.add("");
 

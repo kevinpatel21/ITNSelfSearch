@@ -51,7 +51,7 @@ public class ImportView extends JPanel {
 
                     //Attempts to extract data from input file
                     importingDatabase = new DatabaseImport(filepath);
-                    importingDatabase.importDatabase(newDatabase.getProductCatalogue(), newDatabase.getPasswords());
+                    importingDatabase.importDatabase(newDatabase.getProductCatalogue(), newDatabase.getPasswords(), newDatabase.getKioskLocationArrayList());
 
                     //If valid, listeners are notified
                     if(importingDatabase.wasImported()){
