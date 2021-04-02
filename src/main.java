@@ -196,6 +196,8 @@ public class main {
             public void stateChanged(ChangeEvent e) {
                 System.out.println(newDyn.getTestDatabase().getProducts().size());
 
+                ProductGUI temp = new ProductGUI(newDyn.getTestDatabase().getProducts());
+
                 /**
                  * Kevin, put your GUI test code here
                  */

@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
-public class ProductGUI extends JFrame {
+public class ProductGUI extends JPanel {
 
     String productName;
     Product displayedProduct;
+    String databaseContents;
+    private JTextArea databasePreview;
 
     public ProductGUI(ArrayList<Product> x ) {
-
-
 
         JFrame frame = new JFrame("Product Display");
 
@@ -35,59 +35,53 @@ public class ProductGUI extends JFrame {
         frame.setVisible(true);
 
         searchButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                //Saving input filepath
-                productName = productField.getText();
+             @Override
+             public void actionPerformed(ActionEvent e)
+             {
+
+                    //Saving input filepath
+                    productName = productField.getText();
 
 
-                //System.out.println(x.size());
-
-
-               // System.out.println(x.get(0).getProductName());
-
-
-
-
-                if(productName.equals("hello"))
-                {
-                    System.out.println("Test");
-
-                }
-                else
-                    {
-                        JOptionPane.showMessageDialog(null, "Product not Found!", "Input Error", JOptionPane.ERROR_MESSAGE);
+                     for(int i = 0; i < x.size(); i++)
+                     {
+                         System.out.println("No");
+                         if(productName.equals(x.get(i).getProductName()))
+                         {
+                             databaseContents = "";
+                             databaseContents += "Product Name: " + x.get(i).getProductName() +"\n";
+                             databaseContents += "Product Price: " + x.get(i).getProductPrice() +"\n";
+                             databaseContents += "Product Tags: " + x.get(i).getProductTags() + "\n";
+                             //databaseContents += "Product Location: " + x.get(i).getProductLocation();
+                             //System.out.println(databaseContents);
+                             databasePreview = new JTextArea(databaseContents);
+                             databasePreview.setEditable(false);
+                             frame.add(databasePreview);
+                           frame.setVisible(true);
+                         }
 
                      }
 
+                 /*
+                  if(productName.equals("hello"))
+                    {
+                        System.out.println("Test");
 
-
-            }
-
-
-/*
-                //Detects if user is trying to search filepath that is not empty or just the prompt
-                if(!(filepath.equals(prompt)) && !(filepath.equals(""))){
-
-                    //Attempts to extract data from input file
-                    importingDatabase = new DatabaseImport(filepath);
-                    importingDatabase.importDatabase(newDatabase.getProductCatalogue(), newDatabase.getPasswords());
-
-                    //If valid, listeners are notified
-                    if(importingDatabase.wasImported()){
-                        ChangeEvent importable = new ChangeEvent(this);
-
-                        for(ChangeListener listener: listeners){
-                            listener.stateChanged(importable);
-                        }
                     }
-                    //If not, user is notified that filepath was not valid
-                    else{
-                        JOptionPane.showMessageDialog(null, "File was not found!", "Filepath Error", JOptionPane.ERROR_MESSAGE);
-                    }*/
+                    else
+                    {
+                            JOptionPane.showMessageDialog(null, "Product not Found!", "Input Error", JOptionPane.ERROR_MESSAGE);
 
-                }
+                    }
+                    */
+
+
+             }
+
+
+
+
+           }
 
         );
 
