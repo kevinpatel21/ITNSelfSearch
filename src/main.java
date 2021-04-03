@@ -183,42 +183,42 @@ public class main {
 //        //Creating a class for importing a new database
 //        ImportController testControl = new ImportController();
 
-        System.out.println(newDyn.getProductSize());
-
-        //Updates database if admin finds an import file and confirms import
-
-
-        /**
-         * This is where the program calls system out on product array size after import is completed
-         */
-        newDyn.addImportedListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                System.out.println(newDyn.getTestDatabase().getProducts().size());
-
-                /**
-                 * Kevin, put your GUI test code here
-                 */
-
-                //Use this to get ActiveDatabase
-                newDyn.getTestDatabase();
-
-
-                // Harrisons GUI test code
-                NameFilter nf = new NameFilter();
-                TagFilter tf = new TagFilter();
-
-                homeView v = new homeView();
-                homeController c = new homeController(v, nf, tf, newDyn.getTestDatabase().getDatabase());
-                c.initController();
-
-
-                //ProductGUI test = new ProductGUI(testDatabase.getProducts());
-                /**
-                 *
-                 */
-
-            }});
+//        System.out.println(newDyn.getProductSize());
+//
+//        //Updates database if admin finds an import file and confirms import
+//
+//
+//        /**
+//         * This is where the program calls system out on product array size after import is completed
+//         */
+//        newDyn.addImportedListener(new ChangeListener() {
+//            @Override
+//            public void stateChanged(ChangeEvent e) {
+//                System.out.println(newDyn.getTestDatabase().getProducts().size());
+//
+//                /**
+//                 * Kevin, put your GUI test code here
+//                 */
+//
+//                //Use this to get ActiveDatabase
+//                newDyn.getTestDatabase();
+//
+//
+//                // Harrisons GUI test code
+//                NameFilter nf = new NameFilter();
+//                TagFilter tf = new TagFilter();
+//
+//                homeView v = new homeView();
+//                homeController c = new homeController(v, nf, tf, newDyn.getTestDatabase().getDatabase());
+//                c.initController();
+//
+//
+//                //ProductGUI test = new ProductGUI(testDatabase.getProducts());
+//                /**
+//                 *
+//                 */
+//
+//            }});
 //
 //        });
 //        System.out.println(testDatabase.getProducts().size());

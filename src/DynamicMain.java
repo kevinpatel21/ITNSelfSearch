@@ -3,7 +3,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 
-public class DynamicMain extends JFrame {
+public class DynamicMain{
     //Creating a database for the software to use
     private ActiveDatabase testDatabase = new ActiveDatabase();
     //Creating a class for importing a new database
@@ -17,7 +17,7 @@ public class DynamicMain extends JFrame {
         testControl.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                testDatabase.displayActiveDatabase();
+                //testDatabase.displayActiveDatabase();
                 testDatabase.updateDatabase(testControl.overrideDatabase());
                 testDatabase.displayActiveDatabase();
 
@@ -27,13 +27,73 @@ public class DynamicMain extends JFrame {
                     listener.stateChanged(importready);
                 }
 
+
+
+
+
+
                 /**
-                 * Add Main Menu Call Here
+                 * Use this section below as main
                  */
 
-                //Add namefilter changelistener to main
-                //Add tag filter changelistener to main
-                //Add Admin tag filter here
+                //Use this to get ActiveDatabase
+                getTestDatabase();
+
+
+                // Harrisons GUI test code
+                NameFilter nf = new NameFilter();
+                TagFilter tf = new TagFilter();
+
+                homeView v = new homeView();
+                homeController c = new homeController(v, nf, tf, getTestDatabase().getDatabase());
+                c.initController();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                /**
+                 * End of main
+                 */
 
             }
         });
