@@ -124,7 +124,8 @@ public class homeController
      */
     private void adminView()
     {
-
+        adminView a = new adminView();
+        view.getFrame();
     }
 
 }
