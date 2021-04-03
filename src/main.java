@@ -204,7 +204,13 @@ public class main {
                 newDyn.getTestDatabase();
 
 
+                // Harrisons GUI test code
+                NameFilter nf = new NameFilter();
+                TagFilter tf = new TagFilter();
 
+                homeView v = new homeView();
+                homeController c = new homeController(v, nf, tf, newDyn.getTestDatabase().getDatabase());
+                c.initController();
 
 
                 //ProductGUI test = new ProductGUI(testDatabase.getProducts());
