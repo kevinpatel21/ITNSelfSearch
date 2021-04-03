@@ -40,10 +40,11 @@ public class DatabaseDisplay extends JPanel {
         databaseContents += "\n\nKiosk Coordinate: (" + inputDatabase.getKioskLocation().getX() + ", " + inputDatabase.getKioskLocation().getY() + ")\n";//Code breaks here at getKioskLocation
 
         //Setting up the look/design of the panel
-        databasePreview = new JTextArea(databaseContents);
+        databasePreview = new JTextArea(databaseContents, 10, 20);
         databasePreview.setEditable(false);
+        JScrollPane displayScroll = new JScrollPane(databasePreview, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-        this.add(databasePreview);
+        this.add(displayScroll);
         this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(),"Database Contents"));
         this.setVisible(true);
     }
