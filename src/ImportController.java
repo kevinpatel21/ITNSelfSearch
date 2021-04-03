@@ -74,8 +74,8 @@ public class ImportController extends JFrame{
                             for(ChangeListener listener: listeners){
                                 listener.stateChanged(importable);
                             }
-                            cardlayout.show(viewSet, "importWindow");
                         }
+                        cardlayout.show(viewSet, "importWindow");
                     }
                 });
 
