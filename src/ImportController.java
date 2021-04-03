@@ -17,14 +17,17 @@ public class ImportController extends JFrame{
     private DatabaseDisplay databasePanel;//Panel used to display imported database contents
     private boolean importable;//Used to determine if an import was successful
     final ArrayList<ChangeListener> listeners = new ArrayList<ChangeListener>();//ArrayList of listeners
+    final ArrayList<ChangeListener> mainlistener = new ArrayList<ChangeListener>();//ArrayList of listeners
+    private boolean programStart;
 
     //Constructors
     /**
      * Constructor for ImportController
      */
-    public ImportController(){
+    public ImportController(boolean firstImport){
         //Setting up frame design/layout
         importable = false;
+        programStart = firstImport;
 
         JPanel viewSet = new JPanel(new CardLayout());
         importWindow = new ImportView();
@@ -35,7 +38,7 @@ public class ImportController extends JFrame{
         this.setTitle("Import Viewer");//Title seen at top border of JFrame window
         this.setVisible(true);//we want to see the frame right?
         this.setLocationRelativeTo(null);//Centers window!!
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Allows the frame to be closed
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//Allows the frame to be closed
 
 
         //If an import was successful, panel switches to database view and allows admin to save or cancel
@@ -60,12 +63,19 @@ public class ImportController extends JFrame{
                         newDatabase = importWindow.getNewImport().clone();
                         importWindow.clearNewImport();
 
-                        for(ChangeListener listener: listeners){
-                            listener.stateChanged(importable);
-                        }
-
                         JOptionPane.showMessageDialog(null, "Database has been imported!", "Import Confirmation", JOptionPane.INFORMATION_MESSAGE);
-                        cardlayout.show(viewSet, "importWindow");
+
+                        if(firstImport == true){
+                            for(ChangeListener listener: mainlistener){
+                                listener.stateChanged(importable);
+                            }
+                        }
+                        else{
+                            for(ChangeListener listener: listeners){
+                                listener.stateChanged(importable);
+                            }
+                            cardlayout.show(viewSet, "importWindow");
+                        }
                     }
                 });
 
@@ -93,6 +103,14 @@ public class ImportController extends JFrame{
     public void addChangeListener(ChangeListener newListener){
         listeners.add(newListener);
     }
+    //Sets
+    /**
+     * Function used to determine if this was the first import of software's runtime
+     * @param newListener an input listener
+     */
+    public void addFirstImportListener(ChangeListener newListener){
+        mainlistener.add(newListener);
+    }
     /**
      * Clears data acquired from importation process
      */
@@ -116,5 +134,13 @@ public class ImportController extends JFrame{
      */
     public boolean canImport(){
         return importable;
+    }
+
+    /**
+     * Function used to determine if program is initializing
+     * @return returns true if this is the first import, false if not
+     */
+    public boolean firstImport(){
+        return programStart;
     }
 }

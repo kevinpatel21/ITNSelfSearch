@@ -5,48 +5,30 @@ import java.util.ArrayList;
 
 public class DynamicMain{
     //Creating a database for the software to use
-    private ActiveDatabase testDatabase = new ActiveDatabase();
+    private ActiveDatabase testDatabase;
     //Creating a class for importing a new database
-    private ImportController testControl = new ImportController();
+    private ImportController testControl = new ImportController(false);
     final ArrayList<ChangeListener> importListeners = new ArrayList<ChangeListener>();//ArrayList of listeners
 
-    public DynamicMain(){
-
+    public DynamicMain(ActiveDatabase inputActiveDatabase){
+        testDatabase = inputActiveDatabase;
 
         //Updates database if admin finds an import file and confirms import
-        testControl.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                //testDatabase.displayActiveDatabase();
-                testDatabase.updateDatabase(testControl.overrideDatabase());
-                testDatabase.displayActiveDatabase();
+        /**
+         * Use this section below as main
+         */
 
-                ChangeEvent importready = new ChangeEvent(this);
-
-                for(ChangeListener listener: importListeners){
-                    listener.stateChanged(importready);
-                }
+        //Use this to get ActiveDatabase
+        getTestDatabase();
 
 
+        // Harrisons GUI test code
+        NameFilter nf = new NameFilter();
+        TagFilter tf = new TagFilter();
 
-
-
-
-                /**
-                 * Use this section below as main
-                 */
-
-                //Use this to get ActiveDatabase
-                getTestDatabase();
-
-
-                // Harrisons GUI test code
-                NameFilter nf = new NameFilter();
-                TagFilter tf = new TagFilter();
-
-                homeView v = new homeView();
-                homeController c = new homeController(v, nf, tf, getTestDatabase().getDatabase());
-                c.initController();
+        homeView v = new homeView();
+        homeController c = new homeController(v, nf, tf, getTestDatabase().getDatabase());
+        c.initController();
 
 
 
@@ -91,12 +73,9 @@ public class DynamicMain{
 
 
 
-                /**
-                 * End of main
-                 */
-
-            }
-        });
+        /**
+         * End of main
+         */
     }
 
     public int getProductSize(){

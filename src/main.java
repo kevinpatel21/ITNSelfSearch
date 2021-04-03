@@ -177,11 +177,11 @@ public class main {
 //        testframe.add(buttons);
 
 
-        DynamicMain newDyn = new DynamicMain();
+//        DynamicMain newDyn = new DynamicMain();
 //        //Creating a database for the software to use
 //        ActiveDatabase testDatabase = new ActiveDatabase();
 //        //Creating a class for importing a new database
-//        ImportController testControl = new ImportController();
+        ImportController testControl = new ImportController(true);
 
 //        System.out.println(newDyn.getProductSize());
 //
@@ -191,9 +191,13 @@ public class main {
 //        /**
 //         * This is where the program calls system out on product array size after import is completed
 //         */
-//        newDyn.addImportedListener(new ChangeListener() {
-//            @Override
-//            public void stateChanged(ChangeEvent e) {
+        testControl.addFirstImportListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                ActiveDatabase tempActiveDatabase = new ActiveDatabase();
+                tempActiveDatabase.updateDatabase(testControl.overrideDatabase());
+                DynamicMain newDyn = new DynamicMain(tempActiveDatabase);
+                testControl.dispose();
 //                System.out.println(newDyn.getTestDatabase().getProducts().size());
 //
 //                /**
@@ -217,8 +221,8 @@ public class main {
 //                /**
 //                 *
 //                 */
-//
-//            }});
+
+            }});
 //
 //        });
 //        System.out.println(testDatabase.getProducts().size());
