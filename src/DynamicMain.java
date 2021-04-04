@@ -44,6 +44,11 @@ public class DynamicMain extends JFrame{
         viewSet.add(v, "v");
         this.add(viewSet);
         CardLayout cardlayout = (CardLayout) (viewSet.getLayout());
+//
+//        MapEditor testMap = new MapEditor();
+//
+//        viewSet.add(testMap, "testMap");
+//        cardlayout.show(viewSet, "testMap");
 
         //Listens for when user searches for product name
         c.addNameSearchListener(new ChangeListener() {
