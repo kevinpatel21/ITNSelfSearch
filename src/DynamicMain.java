@@ -54,7 +54,7 @@ public class DynamicMain extends JFrame{
                 testView.setLayout(new FlowLayout());
 
                 String productInfo = "";
-                productInfo += c.getRetrievedProduct().getProductName() + ", ";
+                productInfo += c.getRetrievedProduct().getProductName() + ": ";
                 productInfo += c.getRetrievedProduct().getProductPrice();
 
                 for (String tag: c.getRetrievedProduct().getProductTags()){
