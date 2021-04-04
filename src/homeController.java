@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +21,8 @@ public class homeController
     private NameFilter namefilter;
     private TagFilter tagfilter;
     private Database database;
+    private Product retrievedProduct;
+    private final ArrayList<ChangeListener> nameSearchListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**
      * Constructor for homeController when you create the object for it you will initalize variables needed and go to the initView()
@@ -73,6 +77,14 @@ public class homeController
                 {
                     System.out.print(" ," + tag);
                 }
+
+                retrievedProduct = userProduct;
+
+                ChangeEvent nameSearchSelected = new ChangeEvent(this);
+                for(ChangeListener listener: nameSearchListener){
+                    listener.stateChanged(nameSearchSelected);
+                }
+
                 System.out.println();
             }
             else if(!database.validProductName(view.getUserText().getText()))
@@ -126,5 +138,22 @@ public class homeController
     {
 
     }
+
+    /**
+     * Returns retrieved product for ProductGUI to display
+     */
+    public Product getRetrievedProduct(){
+        return retrievedProduct;
+    }
+
+    //Sets
+    /**
+     * Function used to determine if user searches by name
+     * @param newListener an input listener
+     */
+    public void addNameSearchListener(ChangeListener newListener){
+        nameSearchListener.add(newListener);
+    }
+
 
 }

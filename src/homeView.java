@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 /**
  * Class that implements our GUI for the homescreen
  */
-public class homeView
+public class homeView extends JPanel
 {
     // Variables needed for the Swing framework to display UI to user
     private JToggleButton nameFilterToggle; //
@@ -27,16 +27,16 @@ public class homeView
     private void createFrame()
     {
 
-        frame = new JFrame();
-        addComponents(frame.getContentPane());
-
-        // Set up the frame with a few settings.
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.setTitle("Homescreen");
+        //frame = new JFrame();
+//        addComponents(frame.getContentPane());
+          addComponents(this);
+//        // Set up the frame with a few settings.
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(600, 400);
+//        frame.setResizable(false);
+//        frame.setLocationRelativeTo(null);
+//        frame.setVisible(true);
+//        frame.setTitle("Homescreen");
     }
 
     /**
