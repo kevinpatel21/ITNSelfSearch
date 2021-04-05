@@ -22,7 +22,7 @@ public class DynamicMain extends JFrame{
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        this.setTitle("Homescreen");
+        this.setTitle("ITNSelfSearch");
 
         //Updates database if admin finds an import file and confirms import
         /**
@@ -90,6 +90,91 @@ public class DynamicMain extends JFrame{
 
             }
         });
+
+        //Listens for when user searches by product tags
+        c.addTagSearchListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                JPanel testView2 = new JPanel();
+                testView2.setLayout(new FlowLayout());
+
+                String prompt = "Tag search has been selected.\nThis is a temporary panel, this is where tag search GUI will be displayed.";
+
+
+                JTextArea testText = new JTextArea();
+                testText = new JTextArea(prompt, 10, 20);
+                testText.setEditable(false);
+                testView2.add(testText);
+
+                JButton mainMenu = new JButton("Main Menu");
+                testView2.add(mainMenu);
+
+                //Changing card set to tag display
+                viewSet.add(testView2, "testView2");
+                cardlayout.show(viewSet, "testView2");
+
+                //Listens for when user clicks the main menu button (to exit product view)
+                mainMenu.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        cardlayout.show(viewSet, "v");
+                    }
+                });
+            }
+        });
+
+        //Listens for when user clicks admin
+        c.addAdminListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                adminView adminMenu = new adminView();
+
+                //Changing card set to admin menu
+                viewSet.add(adminMenu, "adminView");
+                cardlayout.show(viewSet, "adminView");
+
+                adminMenu.addMainListener(new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        cardlayout.show(viewSet, "v");
+                    }
+                });
+
+                adminMenu.addMapListener(new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        MapEditor mapEditor = new MapEditor();
+
+                        //Changing card set to admin menu
+                        viewSet.add(mapEditor, "mapEditor");
+                        cardlayout.show(viewSet, "mapEditor");
+                    }
+                });
+            }
+        });
+
+
+
+//                //Listens for when user clicks admin
+//                c.addAdminListener(new ChangeListener() {
+//                    @Override
+//                    public void stateChanged(ChangeEvent e) {
+//                        adminView adminMenu = new adminView();
+//
+//                        //Changing card set to product display
+//                        viewSet.add(adminMenu, "adminView");
+//                        cardlayout.show(viewSet, "adminView");
+//
+////                JButton mainMenu = new JButton("Main Menu");
+////                adminMenu.add(mainMenu);
+//
+//                        //Listens for when user clicks the main menu button (to exit product view)
+//                        mainMenu.addActionListener(new ActionListener() {
+//                            @Override
+//                            public void actionPerformed(ActionEvent e) {
+//                                cardlayout.show(viewSet, "v");
+//                            }
+//                        });
 
 
 

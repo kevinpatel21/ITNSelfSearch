@@ -23,6 +23,8 @@ public class homeController
     private Database database;
     private Product retrievedProduct;
     private final ArrayList<ChangeListener> nameSearchListener = new ArrayList<ChangeListener>();//ArrayList of listeners
+    private final ArrayList<ChangeListener> tagSearchListener = new ArrayList<ChangeListener>();//ArrayList of listeners
+    private final ArrayList<ChangeListener> adminListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**
      * Constructor for homeController when you create the object for it you will initalize variables needed and go to the initView()
@@ -118,6 +120,11 @@ public class homeController
 
                 System.out.println();
             }
+
+            ChangeEvent tagSearchSelected = new ChangeEvent(this);
+            for(ChangeListener listener: tagSearchListener){
+                listener.stateChanged(tagSearchSelected);
+            }
         }
         else if(view.getTagFilterToggle().isSelected() && view.getNameFilterToggle().isSelected())
         {
@@ -136,7 +143,11 @@ public class homeController
      */
     private void adminView()
     {
-        adminView a = new adminView();
+        //adminView a = new adminView();
+        ChangeEvent adminSelected = new ChangeEvent(this);
+        for(ChangeListener listener: adminListener){
+            listener.stateChanged(adminSelected);
+        }
         
     }
 
@@ -154,6 +165,22 @@ public class homeController
      */
     public void addNameSearchListener(ChangeListener newListener){
         nameSearchListener.add(newListener);
+    }
+
+    /**
+     * Function used to determine if user searches by tag
+     * @param newListener an input listener
+     */
+    public void addTagSearchListener(ChangeListener newListener){
+        tagSearchListener.add(newListener);
+    }
+
+    /**
+     * Function used to determine if user clicks on admin
+     * @param newListener an input listener
+     */
+    public void addAdminListener(ChangeListener newListener){
+        adminListener.add(newListener);
     }
 
 

@@ -1,16 +1,23 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * This class is for the GUI implementation of adminView
  */
-public class adminView
+public class adminView extends JPanel
 {
     private JButton mapEditorButton;
     private JButton databaseImportButton;
     private JButton homeButton;
     private JLabel adminScreen;
     private JPanel adminPanel;
+    private final ArrayList<ChangeListener> mainListener = new ArrayList<ChangeListener>();//ArrayList of listeners
+    private final ArrayList<ChangeListener> mapListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**
      * This panel creates the GUI implementation of adminView
@@ -18,11 +25,11 @@ public class adminView
     private void createPanel()
     {
         // Create a new JPanel
-        adminPanel = new JPanel();
+        //adminPanel = new JPanel();
 
         // Create the layout for the panel
         FlowLayout fl = new FlowLayout(FlowLayout.CENTER);
-        adminPanel.setLayout(fl);
+        this.setLayout(fl);
 
         // Set the vertical gap for the layout
         fl.setVgap(50);
@@ -39,12 +46,33 @@ public class adminView
         databaseImportButton.setPreferredSize(new Dimension(300,50));
 
         // Add the buttons to the panel
-        adminPanel.add(mapEditorButton);
-        adminPanel.add(databaseImportButton);
-        adminPanel.add(homeButton);
+        this.add(mapEditorButton);
+        this.add(databaseImportButton);
+        this.add(homeButton);
 
         // Set the background color
-        adminPanel.setBackground(Color.LIGHT_GRAY);
+        this.setBackground(Color.LIGHT_GRAY);
+
+        // Button Listeners
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ChangeEvent mainSelected = new ChangeEvent(this);
+                for(ChangeListener listener: mainListener){
+                    listener.stateChanged(mainSelected);
+                }
+            }
+        });
+
+        mapEditorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ChangeEvent mapSelected = new ChangeEvent(this);
+                for(ChangeListener listener: mapListener){
+                    listener.stateChanged(mapSelected);
+                }
+            }
+        });
 
     }
 
@@ -58,4 +86,19 @@ public class adminView
         createPanel();
     }
 
+    /**
+     * Function used to determine if user clicks on main menu
+     * @param newListener an input listener
+     */
+    public void addMainListener(ChangeListener newListener){
+        mainListener.add(newListener);
+    }
+
+    /**
+     * Function used to determine if user clicks on map editor
+     * @param newListener an input listener
+     */
+    public void addMapListener(ChangeListener newListener){
+        mapListener.add(newListener);
+    }
 }
