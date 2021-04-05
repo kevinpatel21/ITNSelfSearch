@@ -148,10 +148,79 @@ public class DynamicMain extends JFrame{
                         //Changing card set to admin menu
                         viewSet.add(mapEditor, "mapEditor");
                         cardlayout.show(viewSet, "mapEditor");
+
+                        mapEditor.addBackListener(new ChangeListener() {
+                            @Override
+                            public void stateChanged(ChangeEvent e) {
+                                cardlayout.show(viewSet, "adminView");
+                            }
+                        });
+                    }
+                });
+
+                adminMenu.addImportListener(new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        //Setting up frame design/layout
+
+                        ImportView importWindow = new ImportView();
+                        viewSet.add(importWindow, "importWindow");
+                        cardlayout.show(viewSet, "importWindow");
+
+                        importWindow.addBackListener(new ChangeListener() {
+                            @Override
+                            public void stateChanged(ChangeEvent e) {
+                                cardlayout.show(viewSet, "adminView");
+                            }
+                        });
+
+                        //If an import was successful, panel switches to database view and allows admin to save or cancel
+                        importWindow.addChangeListener(new ChangeListener() {
+                            @Override
+                            public void stateChanged(ChangeEvent e) {
+                                //Switching panel to database view
+
+                                DatabaseDisplay databasePanel;
+                                databasePanel = new DatabaseDisplay(importWindow.getNewImport());
+                                JButton saveButton = new JButton("Save");
+                                JButton cancelButton = new JButton("Cancel");
+
+                                viewSet.add(databasePanel, "databasePanel");
+                                CardLayout cardlayout = (CardLayout) (viewSet.getLayout());
+                                cardlayout.show(viewSet, "databasePanel");
+
+                                //If saved, listeners are notified, database import is saved, and user is prompted
+                                saveButton.addActionListener(new ActionListener() {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        ChangeEvent importable = new ChangeEvent(this);
+                                        testDatabase.updateDatabase(importWindow.getNewImport().clone());
+                                        importWindow.clearNewImport();
+
+                                        JOptionPane.showMessageDialog(null, "Database has been imported!", "Import Confirmation", JOptionPane.INFORMATION_MESSAGE);
+                                        cardlayout.show(viewSet, "adminView");
+                                    }
+                                });
+
+                                //If canceled, imported data from input file contents is erased, user is notified and returned to the file search panel
+                                cancelButton.addActionListener(new ActionListener() {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        importWindow.clearNewImport();
+                                        JOptionPane.showMessageDialog(null, "Import aborted!", "Import Canceled", JOptionPane.INFORMATION_MESSAGE);
+                                        cardlayout.show(viewSet, "adminView");
+                                    }
+                                });
+
+                                databasePanel.add(saveButton);
+                                databasePanel.add(cancelButton);
+                            }
+                        });
                     }
                 });
             }
         });
+
 
 
 

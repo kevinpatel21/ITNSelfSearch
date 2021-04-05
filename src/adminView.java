@@ -18,6 +18,7 @@ public class adminView extends JPanel
     private JPanel adminPanel;
     private final ArrayList<ChangeListener> mainListener = new ArrayList<ChangeListener>();//ArrayList of listeners
     private final ArrayList<ChangeListener> mapListener = new ArrayList<ChangeListener>();//ArrayList of listeners
+    private final ArrayList<ChangeListener> importListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**
      * This panel creates the GUI implementation of adminView
@@ -74,6 +75,16 @@ public class adminView extends JPanel
             }
         });
 
+        databaseImportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ChangeEvent importSelected = new ChangeEvent(this);
+                for(ChangeListener listener: importListener){
+                    listener.stateChanged(importSelected);
+                }
+            }
+        });
+
     }
 
     /**
@@ -100,5 +111,13 @@ public class adminView extends JPanel
      */
     public void addMapListener(ChangeListener newListener){
         mapListener.add(newListener);
+    }
+
+    /**
+     * Function used to determine if user clicks on import
+     * @param newListener an input listener
+     */
+    public void addImportListener(ChangeListener newListener){
+        importListener.add(newListener);
     }
 }

@@ -16,6 +16,7 @@ public class ImportView extends JPanel {
     String filepath;//String that stores inputted filepath
     String prompt;//String that holds prompt added to the panel
     final ArrayList<ChangeListener> listeners = new ArrayList<ChangeListener>();//ArrayList that stores listeners
+    final ArrayList<ChangeListener> backListeners = new ArrayList<ChangeListener>();//ArrayList that stores listeners
 
     //Constructors
     /**
@@ -32,9 +33,16 @@ public class ImportView extends JPanel {
         filepathField.setText(prompt);
 
         JButton searchButton = new JButton("Search");
+        JButton returnMenu = new JButton("Back");
 
         this.add(filepathField, BorderLayout.NORTH);
-        this.add(searchButton, BorderLayout.SOUTH);
+        JPanel bottomButtons = new JPanel();
+
+        bottomButtons.setLayout(new FlowLayout());
+        bottomButtons.add(searchButton);
+        bottomButtons.add(returnMenu);
+        this.add(bottomButtons, BorderLayout.SOUTH);
+        this.add(bottomButtons, BorderLayout.SOUTH);
 
         this.setSize(300, 300);//Setting size of frame
         this.setVisible(true);//we want to see the frame right?
@@ -69,6 +77,17 @@ public class ImportView extends JPanel {
                 }
             }
         });
+
+        //Backs out to main menu
+        returnMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ChangeEvent backClicked = new ChangeEvent(this);
+                for(ChangeListener listener: backListeners){
+                    listener.stateChanged(backClicked);
+                }
+            }
+        });
     }
 
     //Sets
@@ -77,6 +96,13 @@ public class ImportView extends JPanel {
      */
     public void addChangeListener(ChangeListener newListener){
         listeners.add(newListener);
+    }
+
+    /**
+     * Adds a listener to the class
+     */
+    public void addBackListener(ChangeListener newListener){
+        backListeners.add(newListener);
     }
 
     /**

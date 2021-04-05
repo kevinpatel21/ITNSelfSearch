@@ -1,13 +1,17 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  * Class that manages the GUI used for store map creation.
  */
 public class MapEditor extends MapTemplate
 {
+    private final ArrayList<ChangeListener> backListener = new ArrayList<ChangeListener>();//ArrayList of listeners
     /**
      * Constructor for the map editor GUI
      */
@@ -24,6 +28,9 @@ public class MapEditor extends MapTemplate
 
         // Initialize the finish editing map button
         JButton finishEditingMapButton = new JButton("Finish Editing Map");
+
+        //Button to back out of map editor
+        JButton backButton = new JButton("Back");
 
         // Initialize the action listener for the finish editing map button
         // TO-DO: Make button save map data to database instead of to debug save
@@ -56,6 +63,19 @@ public class MapEditor extends MapTemplate
 
         // Add the button to the saveButtons panel
         saveButtons.add(loadMapButton);
+
+        // Back button logic
+        saveButtons.add(backButton);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ChangeEvent backSelected = new ChangeEvent(this);
+
+                for(ChangeListener listener: backListener){
+                    listener.stateChanged(backSelected);
+                }
+            }
+        });
 
 
         // Initialize the Tile selection sidebar
@@ -150,6 +170,14 @@ public class MapEditor extends MapTemplate
      * Radio Button used to select the "Wall" grid tile type.
      */
     final JRadioButton wallTile = new JRadioButton("Wall");
+
+    /**
+     * Function used to determine if user clicks on back
+     * @param newListener an input listener
+     */
+    public void addBackListener(ChangeListener newListener){
+        backListener.add(newListener);
+    }
 
 
     // DEBUG: map save used for testing
