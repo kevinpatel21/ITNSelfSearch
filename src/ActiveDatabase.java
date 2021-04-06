@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Returns a copy of database to observe products within
  * Display core database contents
  */
-public class ActiveDatabase {
+public class ActiveDatabase implements Cloneable{
     //Attributes
     private ArrayList<Database> activeDatabase;//Stores a database for software to use
 
@@ -77,5 +77,20 @@ public class ActiveDatabase {
      */
     public void displayActiveDatabase(){
         activeDatabase.get(0).displayDatabase();
+    }
+
+    /**
+     * To make a database clone
+     * @return a clone of the database
+     */
+    public ActiveDatabase clone() {
+        try {
+            ActiveDatabase databaseClone = (ActiveDatabase) super.clone();
+            databaseClone.activeDatabase = (ArrayList<Database>) activeDatabase.clone();
+
+            return databaseClone;
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 }
