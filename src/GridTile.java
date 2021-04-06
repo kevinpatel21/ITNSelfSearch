@@ -24,9 +24,12 @@ public class GridTile extends JButton
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                // Tell the panel that the button belongs to that the tile has been clicked.
-                ChangeEvent event = new ChangeEvent(this);
-                owner.stateChanged(event);
+                if (owner != null)
+                {
+                    // Tell the panel that the button belongs to that the tile has been clicked.
+                    ChangeEvent event = new ChangeEvent(this);
+                    owner.stateChanged(event);
+                }
             }
         });
 
