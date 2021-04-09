@@ -1,0 +1,75 @@
+{
+  "products": [
+    {
+      "productName": "Pepsi",
+      "productPrice": 3.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
+      "productTags": [
+        "Blue",
+        "Drink",
+        "Liquid"
+      ]
+    },
+    {
+      "productName": "Apple",
+      "productPrice": 1.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
+      "productTags": [
+        "Red",
+        "Fruit",
+        "Food"
+      ]
+    },
+    {
+      "productName": "Cheese Pizza",
+      "productPrice": 7.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
+      "productTags": [
+        "Yellow",
+        "Food",
+        "Frozen"
+      ]
+    },
+    {
+      "productName": "Cheese Pizza2",
+      "productPrice": 7.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
+      "productTags": [
+        "Yellow",
+        "Food"
+      ]
+    }
+  ],
+
+  "adminPasswords": [
+    "123",
+    "XYZ",
+    "Hello World"
+  ],
+
+  "storeTags": [
+    "Red",
+    "Green",
+    "Blue",
+    "Yellow",
+    "Black",
+    "White",
+    "Brown",
+    "Frozen",
+    "Liquid",
+    "Food",
+    "Drink",
+    "Fruit",
+    "Vegetables",
+    "Meat",
+    "Appliance",
+    "Tool"
+  ],
+
+  "kioskLocationX": "1",
+  "kioskLocationY": "2"
+}
