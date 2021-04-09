@@ -82,9 +82,14 @@ public class DatabaseImport {
             //Parsing store tags
             JSONArray importTags = (JSONArray) jsonObject.get("storeTags");
             Iterator<String> storeTagIterator = importTags.iterator();
+            String tempString;
 
             while(storeTagIterator.hasNext()){
-                storeTags.add(storeTagIterator.next());
+                tempString = storeTagIterator.next();
+
+                //Checks if a tag has already been added to the database
+                if(!(storeTags.contains(tempString)))
+                    storeTags.add(tempString);
             }
 
             //Parsing admin passwords

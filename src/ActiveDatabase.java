@@ -70,13 +70,28 @@ public class ActiveDatabase implements Cloneable{
         return activeDatabase.get(0).getStoreTags();
     }
 
-    //Gets
     /**
      * Get method used to access the location of current kiosk
      * @return Returns a copy of kiosk location coordinate
      */
     public Coordinate getKioskLocation(){
         return activeDatabase.get(0).getKioskLocation().clone();
+    }
+
+    /**
+     * Get method used to access the store map data
+     */
+    public void getStoreMap(){
+        activeDatabase.get(0).getStoreMap();
+    }
+
+    //Sets
+    /**
+     * Get method used to set map store data
+     * @param inputMap Input map data to update database with
+     */
+    public void setStoreMap(String inputMap){
+        activeDatabase.get(0).setStoreMap(inputMap);
     }
 
 
