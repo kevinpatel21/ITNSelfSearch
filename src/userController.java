@@ -1,14 +1,22 @@
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class User {
+public class userController {
 
     Scanner passwordScanner = new Scanner(System.in);
     String inputPassword;
     ArrayList<String> correctPassword;
     boolean adminMode;
     String defaultPassword;
+
+    private userView uView;
+    private Database d;
+
+    private final ArrayList<ChangeListener> adminLoginListener = new ArrayList<ChangeListener>();//ArrayList of listeners
+    private final ArrayList<ChangeListener> backListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**
      * Compares the input password to the
@@ -26,12 +34,55 @@ public class User {
         {
             if(inputPassword.equals(correctPassword.get(i)))
             {
+                System.out.println("The password was correct");
                 adminMode = true;
+
+                ChangeEvent adminLoginSelected = new ChangeEvent(this);
+                for(ChangeListener listener: adminLoginListener)
+                {
+                    listener.stateChanged(adminLoginSelected);
+                }
             }
 
         }
 
         return adminMode;
+    }
+    public userController(userView v, Database data)
+    {
+        uView = v;
+        d = data;
+        initView();
+    }
+
+    public void initView()
+    {
+        uView.getUserPassword().setText("Search here");
+    }
+
+    public void initController()
+    {
+        uView.getEnterButton().addActionListener(e -> verifyPassword(uView.getUserPassword().getText(), d.getPasswords()));
+        uView.getBackButton().addActionListener(e -> updateBackListener());
+    }
+
+    public void addAdminLoginListener(ChangeListener newListener)
+    {
+        adminLoginListener.add(newListener);
+    }
+
+    public void addBackListener(ChangeListener newListener)
+    {
+        backListener.add(newListener);
+    }
+
+    private void updateBackListener()
+    {
+        ChangeEvent backButtonSelected = new ChangeEvent(this);
+        for(ChangeListener listener: backListener)
+        {
+            listener.stateChanged(backButtonSelected);
+        }
     }
 
 
