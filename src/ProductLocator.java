@@ -28,7 +28,7 @@ public class ProductLocator extends MapTemplate
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                pathfinder(new Coordinate(10,8), new Coordinate(5,8));
+                pathfinder(new Coordinate(8,10), new Coordinate(8,5));
             }
         });
         add(redrawButton, "South");
@@ -113,9 +113,9 @@ public class ProductLocator extends MapTemplate
         mapLoader.useDelimiter("_");
 
         // Find the paths/walls in the map
-        for(int i = 0; i < mapSizeY; i++)
+        for(int j = 0; j < mapSizeY; j++)
         {
-            for(int j = 0; j < mapSizeX; j++)
+            for(int i = 0; i < mapSizeX; i++)
             {
                 if(mapLoader.hasNextInt())
                 {
@@ -142,9 +142,9 @@ public class ProductLocator extends MapTemplate
             int tilesUpdated = 0;
 
             // Check each tile in the distance map
-            for (int i = 0; i < mapSizeY; i++)
+            for (int j = 0; j < mapSizeY; j++)
             {
-                for (int j = 0; j < mapSizeX; j++)
+                for (int i = 0; i < mapSizeX; i++)
                 {
                     // Check if the current tile is a path that does not have a known distance
                     if(distanceMap[i][j] == -2)
@@ -181,9 +181,9 @@ public class ProductLocator extends MapTemplate
         }
 
         // DEBUG: Print the contents of the distance map to the console
-        for(int i = 0; i < mapSizeY; i++)
+        for(int j = 0; j < mapSizeY; j++)
         {
-            for(int j = 0; j < mapSizeX; j++)
+            for(int i = 0; i < mapSizeX; i++)
             {
                 System.out.printf("%4s", distanceMap[i][j] + " ");
             }

@@ -21,9 +21,9 @@ public abstract class MapTemplate extends JPanel
         mapGridPanel.setLayout(new GridLayout(mapSizeX, mapSizeY));
 
         // Create the map grid
-        for(int i = 0; i < mapSizeY; i++)
+        for(int j = 0; j < mapSizeY; j++)
         {
-            for(int j = 0; j < mapSizeX; j++)
+            for(int i = 0; i < mapSizeX; i++)
             {
                 // Create a new grid tile
                 gridArray[i][j] = new GridTile();
@@ -49,9 +49,9 @@ public abstract class MapTemplate extends JPanel
         StringBuilder mapData = new StringBuilder();
 
         // Create a map string using data from the map grid
-        for(int i = 0; i < mapSizeY; i++)
+        for(int j = 0; j < mapSizeY; j++)
         {
-            for(int j = 0; j < mapSizeX; j++)
+            for(int i = 0; i < mapSizeX; i++)
             {
                 mapData.append(gridArray[i][j].getGridState()); // Add the current tile's data to the map string
                 mapData.append("_"); // Character used to separate each tile's data in the map string
@@ -74,9 +74,9 @@ public abstract class MapTemplate extends JPanel
         mapLoader.useDelimiter("_");
 
         // Set the state of the map grid using data from the map string
-        for(int i = 0; i < mapSizeY; i++)
+        for(int j = 0; j < mapSizeY; j++)
         {
-            for(int j = 0; j < mapSizeX; j++)
+            for(int i = 0; i < mapSizeX; i++)
             {
                 if(mapLoader.hasNextInt())
                 {
