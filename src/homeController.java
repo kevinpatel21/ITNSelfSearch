@@ -91,6 +91,7 @@ public class homeController
             }
             else if(!database.validProductName(view.getUserText().getText()))
             {
+                JOptionPane.showMessageDialog(null, "There was no product in the database with the name " + "'" +view.getUserText().getText() + "'", "Product Not Found!", JOptionPane.ERROR_MESSAGE);
                 System.out.println("There was no product in the database with the name " + "'" +view.getUserText().getText() + "'");
             }
         }
@@ -128,7 +129,7 @@ public class homeController
         }
         else if(view.getTagFilterToggle().isSelected() && view.getNameFilterToggle().isSelected())
         {
-            JOptionPane.showMessageDialog(null,"Cant search with both filters toggled on. Please only select 1 filter ", "Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Cant search with both filters toggled on. Please only select 1 filter.", "Error",JOptionPane.ERROR_MESSAGE);
         }
 
         else if(!view.getTagFilterToggle().isSelected() && !view.getNameFilterToggle().isSelected())
