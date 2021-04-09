@@ -7,8 +7,8 @@
       "productLocationY": "11",
       "productTags": [
         "Blue",
-        "Beverage",
-        "Soda"
+        "Drink",
+        "Liquid"
       ]
     },
     {
@@ -42,6 +42,27 @@
         "Yellow",
         "Food"
       ]
+    },
+    {
+      "productName": "iPhone SE",
+      "productPrice": 199.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
+      "productTags": [
+        "Appliance",
+        "Black"
+      ]
+    },
+    {
+      "productName": "Meat Balls",
+      "productPrice": 5.99,
+      "productLocationX": "3",
+      "productLocationY": "11",
+      "productTags": [
+        "Brown",
+        "Food",
+        "Frozen"
+      ]
     }
   ],
 
@@ -49,6 +70,25 @@
     "123",
     "XYZ",
     "Hello World"
+  ],
+
+  "storeTags": [
+    "Red",
+    "Green",
+    "Blue",
+    "Yellow",
+    "Black",
+    "White",
+    "Brown",
+    "Frozen",
+    "Liquid",
+    "Food",
+    "Drink",
+    "Fruit",
+    "Vegetables",
+    "Meat",
+    "Appliance",
+    "Tool"
   ],
 
   "kioskLocationX": "1",

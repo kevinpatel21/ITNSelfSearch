@@ -183,5 +183,12 @@ public class homeController
         adminListener.add(newListener);
     }
 
+    /**
+     * Function used to update database in main menu
+     */
+    public void refreshDatabase(Database inputDatabase){
+        database = inputDatabase;
+    }
+
 
 }

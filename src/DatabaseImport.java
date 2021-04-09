@@ -36,7 +36,7 @@ public class DatabaseImport {
      * @param databaseProducts productCatalogue ArrayList from Database Object
      * @param databasePasswords adminPasswords ArrayList from Database Object
      */
-    public void importDatabase(ArrayList<Product> databaseProducts, ArrayList<String> databasePasswords, ArrayList<Coordinate> kioskCoordinate){
+    public void importDatabase(ArrayList<Product> databaseProducts, ArrayList<String> storeTags, ArrayList<String> databasePasswords, ArrayList<Coordinate> kioskCoordinate){
         databasePasswords.clear();//Ensures that all previous passwords are erased
         databaseProducts.clear();//Ensures that all previous products are erased
         kioskCoordinate.clear();//Ensures that previous kiosk coordinate is erased
@@ -77,6 +77,14 @@ public class DatabaseImport {
                 }
 
                 databaseProducts.add(importProduct.clone());
+            }
+
+            //Parsing store tags
+            JSONArray importTags = (JSONArray) jsonObject.get("storeTags");
+            Iterator<String> storeTagIterator = importTags.iterator();
+
+            while(storeTagIterator.hasNext()){
+                storeTags.add(storeTagIterator.next());
             }
 
             //Parsing admin passwords

@@ -16,6 +16,7 @@ public class Database implements Cloneable{
     private ArrayList<String> adminPasswords;//ArrayList that stores passwords
     String storeMap;//Map of the store
     private ArrayList<Coordinate> kioskLocation;//Coordinate of kiosk
+    private ArrayList<String> storeTags;//ArrayList that imported store product tags used for tag search
 
 
     //Constructors
@@ -25,6 +26,7 @@ public class Database implements Cloneable{
      */
     public Database(String defaultPassword){
         productCatalogue = new ArrayList<Product>();
+        storeTags = new ArrayList<String>();
         adminPasswords = new ArrayList<String>();
         adminPasswords.add(defaultPassword);
         storeMap = "";
@@ -37,6 +39,7 @@ public class Database implements Cloneable{
      */
     public Database(){
         productCatalogue = new ArrayList<Product>();
+        storeTags = new ArrayList<String>();
         adminPasswords = new ArrayList<String>();
         adminPasswords.add("");
         storeMap = "";
@@ -115,6 +118,14 @@ public class Database implements Cloneable{
     }//GOT RID OF CLONE!!!
 
     /**
+     * Function used to retrieve store product tags
+     * @return Returns ArrayList of store product tags
+     */
+    public ArrayList<String> getStoreTags(){
+        return (ArrayList<String>) storeTags;
+    }//GOT RID OF CLONE!!!
+
+    /**
      * Function used to retrieve number of passwords in database
      * @return Returns number of passwords stored in database
      */
@@ -133,6 +144,15 @@ public class Database implements Cloneable{
      * @return Returns ArrayList containing coordinate, NOT A COPY/CLONE
      */
     public ArrayList<Coordinate> getKioskLocationArrayList(){ return kioskLocation; }
+
+    /**
+     * Function used to retrieve number of store product tags in database
+     * @return Returns number of store product tags stored in database
+     */
+    public int getStoreTagCounter(){
+        return storeTags.size();
+    }
+
 
 
     //Display Database
@@ -185,6 +205,7 @@ public class Database implements Cloneable{
         try {
             Database databaseClone = (Database) super.clone();
             databaseClone.adminPasswords = (ArrayList<String>) adminPasswords.clone();
+            databaseClone.storeTags = (ArrayList<String>) storeTags.clone();
             databaseClone.productCatalogue = (ArrayList<Product>) productCatalogue.clone();
             databaseClone.kioskLocation = (ArrayList<Coordinate>) kioskLocation.clone();
 

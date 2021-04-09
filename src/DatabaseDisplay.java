@@ -18,7 +18,10 @@ public class DatabaseDisplay extends JPanel {
         this.setLayout(new FlowLayout());
 
         databaseContents = "";
-        databaseContents += "Products: " + inputDatabase.getProductCounter() +"\n\n";
+
+        databaseContents += "Kiosk Coordinate: (" + inputDatabase.getKioskLocation().getX() + ", " + inputDatabase.getKioskLocation().getY() + ")\n";//Code breaks here at getKioskLocation
+
+        databaseContents += "\n\nProducts: " + inputDatabase.getProductCounter() +"\n\n";
 
         for (Product product: inputDatabase.getProductCatalogue()){
             databaseContents += product.getProductName() + ": " + product.getProductPrice();
@@ -37,7 +40,11 @@ public class DatabaseDisplay extends JPanel {
             databaseContents += password + "\n";
         }
 
-        databaseContents += "\n\nKiosk Coordinate: (" + inputDatabase.getKioskLocation().getX() + ", " + inputDatabase.getKioskLocation().getY() + ")\n";//Code breaks here at getKioskLocation
+        databaseContents += "\n\nStore Tags: " + inputDatabase.getStoreTagCounter() + "\n\n";
+
+        for (String tag: inputDatabase.getStoreTags()){
+            databaseContents += tag + "\n";
+        }
 
         //Setting up the look/design of the panel
         databasePreview = new JTextArea(databaseContents, 10, 20);

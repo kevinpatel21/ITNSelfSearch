@@ -63,7 +63,7 @@ public class DynamicMain extends JFrame{
                 productInfo += c.getRetrievedProduct().getProductPrice();
 
                 for (String tag: c.getRetrievedProduct().getProductTags()){
-                    productInfo += ", " + tag;
+                    productInfo += ", "+ tag;
                 }
 
                 productInfo += "\n\n" + "NOTE: This is only a test display. The ProductGUI class will go here when complete.";
@@ -193,8 +193,10 @@ public class DynamicMain extends JFrame{
                                 saveButton.addActionListener(new ActionListener() {
                                     @Override
                                     public void actionPerformed(ActionEvent e) {
-                                        ChangeEvent importable = new ChangeEvent(this);
+                                        //ChangeEvent importable = new ChangeEvent(this);
                                         testDatabase.updateDatabase(importWindow.getNewImport().clone());
+                                        c.refreshDatabase(importWindow.getNewImport().clone());
+                                        //testDatabase = new ActiveDatabase(importWindow.getNewImport().clone());
                                         importWindow.clearNewImport();
 
                                         JOptionPane.showMessageDialog(null, "Database has been imported!", "Import Confirmation", JOptionPane.INFORMATION_MESSAGE);

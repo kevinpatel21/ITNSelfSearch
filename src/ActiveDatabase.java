@@ -18,6 +18,15 @@ public class ActiveDatabase implements Cloneable{
         activeDatabase = new ArrayList<Database>();
         activeDatabase.add(0, new Database());
     }
+
+    /**
+     * Constructor for ActiveDatabase class, no default password required
+     */
+    ActiveDatabase(Database inputDatabase){
+        activeDatabase = new ArrayList<Database>();
+        activeDatabase.add(0, inputDatabase.clone());
+    }
+
     /**
      * Constructor for ActiveDatabase class, a default password is required
      * @param defaultPassword default password to be added to database
@@ -53,6 +62,14 @@ public class ActiveDatabase implements Cloneable{
         return activeDatabase.get(0).getProductCatalogue();
     }
 
+    /**
+     * Get method used to access store product tags
+     * @return Returns ArrayList of store product tags in database, (NOT A COPY/CLONE)
+     */
+    public ArrayList<String> getStoreTags(){
+        return activeDatabase.get(0).getStoreTags();
+    }
+
     //Gets
     /**
      * Get method used to access the location of current kiosk
@@ -69,7 +86,7 @@ public class ActiveDatabase implements Cloneable{
      */
     public void updateDatabase(Database newDatabase){
         activeDatabase.clear();
-        activeDatabase.add(newDatabase);
+        activeDatabase.add(0, newDatabase);
     }
 
     /**
