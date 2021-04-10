@@ -15,78 +15,58 @@ public class ProductGUI extends JPanel {
     Product displayedProduct;
     String databaseContents;
     private JTextArea databasePreview;
+    final ArrayList<ChangeListener> mainlistener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
-    public ProductGUI(ArrayList<Product> x ) {
+    public ProductGUI(Product inputProduct, Coordinate kioskCoordinate) {
 
-        JFrame frame = new JFrame("Product Display");
+        //JFrame frame = new JFrame("Product Display");
 
-        frame.setSize(300, 300);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(300, 300);
+//        frame.setLocationRelativeTo(null);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new BorderLayout());
 
-        JButton searchButton = new JButton("Search");
-        JTextField productField = new JTextField(20);
-        String prompt = "Enter Product here";
-        productField.setText(prompt);
+        databaseContents = "";
+        databaseContents += "Product Name: " + inputProduct.getProductName() +"\n";
+        databaseContents += "Product Price: $" + inputProduct.getProductPrice() +"\n";
+        databaseContents += "Product Tags: " + inputProduct.getProductTags() + "\n";
+        databasePreview = new JTextArea(databaseContents);
+        databasePreview.setEditable(false);
+        this.add(databasePreview, BorderLayout.NORTH);
+        this.setVisible(true);
 
-        frame.add(productField, BorderLayout.NORTH);
-        frame.add(searchButton, BorderLayout.SOUTH);
 
-        frame.setVisible(true);
+        ProductLocator productMap = new ProductLocator(kioskCoordinate, inputProduct.getProductLocation());
+        this.add(productMap, BorderLayout.CENTER);
 
-        searchButton.addActionListener(new ActionListener() {
+
+        JButton menuButton = new JButton("Main Menu");
+        this.add(menuButton, BorderLayout.SOUTH);
+
+        menuButton.addActionListener(new ActionListener() {
              @Override
              public void actionPerformed(ActionEvent e)
              {
-
-                    //Saving input filepath
-                    productName = productField.getText();
-
-
-                     for(int i = 0; i < x.size(); i++)
-                     {
-                         System.out.println("No");
-                         if(productName.equals(x.get(i).getProductName()))
-                         {
-                             databaseContents = "";
-                             databaseContents += "Product Name: " + x.get(i).getProductName() +"\n";
-                             databaseContents += "Product Price: " + x.get(i).getProductPrice() +"\n";
-                             databaseContents += "Product Tags: " + x.get(i).getProductTags() + "\n";
-                             //databaseContents += "Product Location: " + x.get(i).getProductLocation();
-                             //System.out.println(databaseContents);
-                             databasePreview = new JTextArea(databaseContents);
-                             databasePreview.setEditable(false);
-                             frame.add(databasePreview);
-                           frame.setVisible(true);
-                         }
-
-                     }
-
-                 /*
-                  if(productName.equals("hello"))
-                    {
-                        System.out.println("Test");
-
-                    }
-                    else
-                    {
-                            JOptionPane.showMessageDialog(null, "Product not Found!", "Input Error", JOptionPane.ERROR_MESSAGE);
-
-                    }
-                    */
-
-
+                 ChangeEvent menuSelected = new ChangeEvent(this);
+                 for(ChangeListener listener: mainlistener){
+                     listener.stateChanged(menuSelected);
+                 }
              }
-
-
-
-
            }
 
         );
 
 
 
+    }
+
+    //Sets
+    /**
+     * Function used to determine if user searches by name
+     * @param newListener an input listener
+     */
+    public void addMainListener(ChangeListener newListener){
+        mainlistener.add(newListener);
     }
 
 

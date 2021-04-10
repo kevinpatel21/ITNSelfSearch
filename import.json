@@ -3,8 +3,8 @@
     {
       "productName": "Pepsi",
       "productPrice": 3.99,
-      "productLocationX": "3",
-      "productLocationY": "11",
+      "productLocationX": "8",
+      "productLocationY": "5",
       "productTags": [
         "Blue",
         "Drink",
@@ -91,6 +91,6 @@
     "Tool"
   ],
 
-  "kioskLocationX": "1",
-  "kioskLocationY": "2"
+  "kioskLocationX": "8",
+  "kioskLocationY": "10"
 }

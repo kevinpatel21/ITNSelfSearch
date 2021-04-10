@@ -12,7 +12,7 @@ public class ProductLocator extends MapTemplate
     /**
      * Constructor for the product locator GUI
      */
-    public ProductLocator()
+    public ProductLocator(Coordinate kioskCoordinate, Coordinate productCoordinate)
     {
         // Call the constructor of the MapTemplate class to create the map grid
         super();
@@ -28,7 +28,7 @@ public class ProductLocator extends MapTemplate
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                pathfinder(new Coordinate(8,10), new Coordinate(8,5));
+                pathfinder(kioskCoordinate, productCoordinate);
             }
         });
         add(redrawButton, "South");

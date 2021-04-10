@@ -1,3 +1,4 @@
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
@@ -44,6 +45,10 @@ public class userController {
                 }
             }
 
+        }
+
+        if(adminMode == false){
+            JOptionPane.showMessageDialog(null, "Incorrect password!", "Login Failure", JOptionPane.ERROR_MESSAGE);
         }
 
         return adminMode;
