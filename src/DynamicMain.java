@@ -138,6 +138,23 @@ public class DynamicMain extends JFrame{
                                 viewSet.add(mapEditor, "mapEditor");
                                 cardlayout.show(viewSet, "mapEditor");
 
+                                // Register listener for the map editor to save map data to the database
+                                mapEditor.addMapSaveListener(new ChangeListener() {
+                                    @Override
+                                    public void stateChanged(ChangeEvent e) {
+                                        testDatabase.setStoreMap(mapEditor.saveMapData());
+                                    }
+                                });
+
+                                // Register listener for the map editor to load map data from the database
+                                mapEditor.addMapLoadListener(new ChangeListener() {
+                                    @Override
+                                    public void stateChanged(ChangeEvent e) {
+                                        mapEditor.loadMapData(testDatabase.getStoreMap());
+                                    }
+                                });
+
+                                // Register listener to exit the map editor
                                 mapEditor.addBackListener(new ChangeListener() {
                                     @Override
                                     public void stateChanged(ChangeEvent e) {
