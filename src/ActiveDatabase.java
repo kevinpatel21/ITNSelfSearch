@@ -80,9 +80,10 @@ public class ActiveDatabase implements Cloneable{
 
     /**
      * Get method used to access the store map data
+     * @return Returns currently stored map in the database
      */
-    public void getStoreMap(){
-        activeDatabase.get(0).getStoreMap();
+    public String getStoreMap(){
+        return activeDatabase.get(0).getStoreMap();
     }
 
     //Sets
