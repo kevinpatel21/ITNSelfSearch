@@ -33,14 +33,21 @@ public class MapEditor extends MapTemplate
         JButton backButton = new JButton("Back");
 
         // Initialize the action listener for the finish editing map button
-        // TO-DO: Make button save map data to database instead of to debug save
         finishEditingMapButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                savedMapTestData = saveMapData();
-                System.out.println(savedMapTestData);
+                // DEBUG: Print map save data to the console
+                System.out.println(saveMapData());
+
+                // save map to database
+                ChangeEvent saveMapAttempt = new ChangeEvent(this);
+
+                for(ChangeListener listener : mapSaveListener)
+                {
+                    listener.stateChanged(saveMapAttempt);
+                }
             }
         });
 
@@ -51,13 +58,18 @@ public class MapEditor extends MapTemplate
         JButton loadMapButton = new JButton("Load Existing Map");
 
         // Initialize the action listener for the load button
-        // TO-DO: Make button load map data from database instead of from debug save.
         loadMapButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                loadMapData(savedMapTestData);
+                // load map from database
+                ChangeEvent loadMapAttempt = new ChangeEvent(this);
+
+                for(ChangeListener listener : mapLoadListener)
+                {
+                    listener.stateChanged(loadMapAttempt);
+                }
             }
         });
 
@@ -178,8 +190,4 @@ public class MapEditor extends MapTemplate
     public void addBackListener(ChangeListener newListener){
         backListener.add(newListener);
     }
-
-
-    // DEBUG: map save used for testing
-    String savedMapTestData = "";
 }

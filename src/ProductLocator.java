@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -16,10 +18,6 @@ public class ProductLocator extends MapTemplate
     {
         // Call the constructor of the MapTemplate class to create the map grid
         super();
-
-        // Load saved map data
-        // TO-DO: Load map data from database instead of from debug save.
-        loadMapData(savedMapTestData);
 
         // DEBUG: Button to rerun the pathfinding function for testing purposes.
         JButton redrawButton = new JButton("Redraw Path");
@@ -55,8 +53,15 @@ public class ProductLocator extends MapTemplate
         Random rng = new Random();
         int randomMove;
 
-        // Load the store map and generate the distance map
-        loadMapData(savedMapTestData);
+        // load map from database
+        ChangeEvent loadMapAttempt = new ChangeEvent(this);
+
+        for(ChangeListener listener : mapLoadListener)
+        {
+            listener.stateChanged(loadMapAttempt);
+        }
+
+        // Generate a map of the distance from the product tile for every tile on the map grid
         generateDistanceMap(productLocation);
 
         // Draw the path to the product
@@ -234,7 +239,4 @@ public class ProductLocator extends MapTemplate
      * Array of integers used to store the distance from the product tile for every tile on the map grid
      */
     private final int[][] distanceMap = new int[mapSizeX][mapSizeY];
-
-    // DEBUG: map save used for testing
-    String savedMapTestData = "3_2_2_2_2_2_2_2_2_2_2_2_3_2_3_3_3_3_2_3_3_3_2_1_3_2_3_2_2_2_2_2_2_3_2_2_3_2_3_2_2_2_2_1_2_3_1_2_3_2_3_2_2_2_2_1_2_3_2_2_3_2_3_2_2_2_2_1_2_3_2_1_3_2_2_2_1_1_1_1_1_3_2_2_3_2_3_2_2_2_2_2_2_3_3_2_3_2_3_3_3_3_3_3_2_2_2_2_3_2_2_2_2_2_2_3_3_3_2_3_3_3_3_3_3_3_2_2_2_2_2_3_3_2_2_2_2_3_3_3_3_3_3_3_*";
 }

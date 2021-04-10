@@ -1,5 +1,7 @@
 import javax.swing.*;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -65,6 +67,17 @@ public abstract class MapTemplate extends JPanel
 
 
     /**
+     * Method used to register a listener for saving a map.
+     * Used to notify the database when a map class wants to save a map to the database.
+     * @param newListener an input listener
+     */
+    public void addMapSaveListener(ChangeListener newListener)
+    {
+        mapSaveListener.add(newListener);
+    }
+
+
+    /**
      * Method to load a saved map in the map editor.
      * @param mapData String containing data used to load an existing map.
      */
@@ -85,6 +98,17 @@ public abstract class MapTemplate extends JPanel
                 }
             }
         }
+    }
+
+
+    /**
+     * Method used to register a listener for loading a map.
+     * Used to notify the database when a map class wants to load a map from the database.
+     * @param newListener an input listener
+     */
+    public void addMapLoadListener(ChangeListener newListener)
+    {
+        mapLoadListener.add(newListener);
     }
 
 
@@ -113,4 +137,16 @@ public abstract class MapTemplate extends JPanel
      * 2D Array used to store the map grid
      */
     final GridTile[][] gridArray = new GridTile[mapSizeX][mapSizeY];
+
+
+    /**
+     * ArrayList used to store listeners that are notified about events related to saving map data
+     */
+    protected final ArrayList<ChangeListener> mapSaveListener = new ArrayList<>();
+
+
+    /**
+     * ArrayList used to store listeners that are notified about events related to loading map data
+     */
+    protected final ArrayList<ChangeListener> mapLoadListener = new ArrayList<>();
 }
