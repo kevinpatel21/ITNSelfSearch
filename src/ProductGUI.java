@@ -17,7 +17,7 @@ public class ProductGUI extends JPanel {
     private JTextArea databasePreview;
     final ArrayList<ChangeListener> mainlistener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
-    public ProductGUI(Product inputProduct, Coordinate kioskCoordinate) {
+    public ProductGUI(Product inputProduct, Coordinate kioskCoordinate, String storeMap) {
 
         //JFrame frame = new JFrame("Product Display");
 
@@ -42,6 +42,16 @@ public class ProductGUI extends JPanel {
 
         JButton menuButton = new JButton("Main Menu");
         this.add(menuButton, BorderLayout.SOUTH);
+
+        productMap.loadMapData(storeMap);
+
+        // Register listener for the map editor to load map data from the database
+        productMap.addMapLoadListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                productMap.loadMapData(storeMap);
+            }
+        });
 
         menuButton.addActionListener(new ActionListener() {
              @Override

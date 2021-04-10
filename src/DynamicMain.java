@@ -47,7 +47,7 @@ public class DynamicMain extends JFrame{
         c.addNameSearchListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                ProductGUI testView = new ProductGUI(c.getRetrievedProduct(), testDatabase.getKioskLocation());
+                ProductGUI testView = new ProductGUI(c.getRetrievedProduct(), testDatabase.getKioskLocation(), testDatabase.getStoreMap());
 
                 //Changing card set to product display
                 viewSet.add(testView, "testView");
@@ -143,6 +143,7 @@ public class DynamicMain extends JFrame{
                                     @Override
                                     public void stateChanged(ChangeEvent e) {
                                         testDatabase.setStoreMap(mapEditor.saveMapData());
+                                        JOptionPane.showMessageDialog(null, "Map has been saved!", "Save Confirmation", JOptionPane.INFORMATION_MESSAGE);
                                     }
                                 });
 

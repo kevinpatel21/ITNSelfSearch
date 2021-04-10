@@ -20,7 +20,7 @@ public class ProductLocator extends MapTemplate
         super();
 
         // DEBUG: Button to rerun the pathfinding function for testing purposes.
-        JButton redrawButton = new JButton("Redraw Path");
+        JButton redrawButton = new JButton("Draw Path");
         redrawButton.addActionListener(new ActionListener()
         {
             @Override
