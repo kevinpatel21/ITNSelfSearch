@@ -28,8 +28,13 @@ public class DynamicMain extends JFrame{
         /**
          * Use this section below as main
          */
+
+        tagMenu tM = new tagMenu(getTestDatabase().getDatabase());
         NameFilter nf = new NameFilter();
         TagFilter tf = new TagFilter();
+
+        tagMenuController tC = new tagMenuController(tM, getTestDatabase().getDatabase(), tf);
+        tC.initController();
 
         homeView v = new homeView();
         homeController c = new homeController(v, nf, tf, getTestDatabase().getDatabase());
