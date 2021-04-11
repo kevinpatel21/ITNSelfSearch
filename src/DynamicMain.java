@@ -29,12 +29,8 @@ public class DynamicMain extends JFrame{
          * Use this section below as main
          */
 
-        tagMenu tM = new tagMenu(getTestDatabase().getDatabase());
         NameFilter nf = new NameFilter();
         TagFilter tf = new TagFilter();
-
-        tagMenuController tC = new tagMenuController(tM, getTestDatabase().getDatabase(), tf);
-        tC.initController();
 
         homeView v = new homeView();
         homeController c = new homeController(v, nf, tf, getTestDatabase().getDatabase());
@@ -74,32 +70,40 @@ public class DynamicMain extends JFrame{
         c.addTagSearchListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                JPanel testView2 = new JPanel();
-                testView2.setLayout(new FlowLayout());
-
-                String prompt = "Tag search has been selected.\nThis is a temporary panel, this is where tag search GUI will be displayed.";
-
-
-                JTextArea testText = new JTextArea();
-                testText = new JTextArea(prompt, 10, 20);
-                testText.setEditable(false);
-                testView2.add(testText);
-
-                JButton mainMenu = new JButton("Main Menu");
-                testView2.add(mainMenu);
+                tagMenu tM = new tagMenu(getTestDatabase().getDatabase());
+                tagMenuController tC = new tagMenuController(tM, getTestDatabase().getDatabase(), tf);
+                tC.initController();
 
                 //Changing card set to tag display
-                viewSet.add(testView2, "testView2");
-                cardlayout.show(viewSet, "testView2");
-
-                System.out.println(viewSet.getComponentCount());
+                viewSet.add(tM, "tM");
+                cardlayout.show(viewSet, "tM");
 
                 //Listens for when user clicks the main menu button (to exit product view)
-                mainMenu.addActionListener(new ActionListener() {
+                tC.addBackListener(new ChangeListener() {
                     @Override
-                    public void actionPerformed(ActionEvent e) {
+                    public void stateChanged(ChangeEvent e) {
                         cardlayout.show(viewSet, "v");
-                        viewSet.remove(testView2);
+                        viewSet.remove(tM);
+                    }
+                });
+
+                // Listen for when user clicks on the search button
+                tC.addSearchListener(new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        productSelection pSelection = new productSelection(tC.getRetrievedProducts(), getTestDatabase().getDatabase());
+                        viewSet.add(pSelection, "pSelection");
+                        cardlayout.show(viewSet, "pSelection");
+                        viewSet.remove(tM);
+
+                        pSelection.addCancelListener(new ChangeListener() {
+                            @Override
+                            public void stateChanged(ChangeEvent e) {
+                                cardlayout.show(viewSet, "v");
+                                viewSet.remove(pSelection);
+                            }
+                        });
+
                     }
                 });
             }
