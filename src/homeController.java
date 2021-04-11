@@ -23,7 +23,7 @@ public class homeController
     private Database database;
     private Product retrievedProduct;
     private final ArrayList<ChangeListener> nameSearchListener = new ArrayList<ChangeListener>();//ArrayList of listeners
-    private final ArrayList<ChangeListener> tagSearchListener = new ArrayList<ChangeListener>();//ArrayList of listeners
+    private final ArrayList<ChangeListener> tagMenuListener = new ArrayList<ChangeListener>();//ArrayList of listeners
     private final ArrayList<ChangeListener> adminListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**
@@ -57,6 +57,16 @@ public class homeController
         // These are our actionlisteners when one is clicked it goes to that function and does that action
         view.getSearchButton().addActionListener(e -> search());
         view.getAdminButton().addActionListener(e -> adminView());
+        view.getTagMenuButton().addActionListener(e -> callTagMenu());
+    }
+
+    private void callTagMenu()
+    {
+        ChangeEvent tagMenuSelected = new ChangeEvent(this);
+        for(ChangeListener listener: tagMenuListener){
+            listener.stateChanged(tagMenuSelected);
+        }
+        System.out.println("Button worked");
     }
 
     /**
@@ -66,7 +76,7 @@ public class homeController
     private void search()
     {
         // This will execute if the namefilter is toggled and if the tagfilter is not selected
-        if(view.getNameFilterToggle().isSelected() && !view.getTagFilterToggle().isSelected())
+        if(view.getNameFilterToggle().isSelected())
         {
 
             if(database.validProductName(view.getUserText().getText()))
@@ -95,49 +105,13 @@ public class homeController
                 System.out.println("There was no product in the database with the name " + "'" +view.getUserText().getText() + "'");
             }
         }
-        // This will execute if the TagFilterToggle is selected and if the name filter is not selected
-        else if(view.getTagFilterToggle().isSelected() && !view.getNameFilterToggle().isSelected())
+        else if(!(view.getNameFilterToggle().isSelected()))
         {
-            //OFF state
-            Scanner stringParser = new Scanner(view.getUserText().getText());
-            ArrayList<String> parsedTags = new ArrayList<String>();
-            ArrayList<Product> retrievedProducts = new ArrayList<Product>();
-
-            while(stringParser.hasNext())
-            {
-                parsedTags.add(stringParser.next());
-            }
-
-            retrievedProducts = tagfilter.retrieveByTags(parsedTags, database);
-
-            for (Product product: retrievedProducts)
-            {
-                System.out.print(product.getProductName() + ": " + product.getProductPrice());
-
-                for(String tag: product.getProductTags())
-                {
-                    System.out.print(", " + tag);
-                }
-
-                System.out.println();
-            }
-
-            ChangeEvent tagSearchSelected = new ChangeEvent(this);
-            for(ChangeListener listener: tagSearchListener){
-                listener.stateChanged(tagSearchSelected);
-            }
-        }
-        else if(view.getTagFilterToggle().isSelected() && view.getNameFilterToggle().isSelected())
-        {
-            JOptionPane.showMessageDialog(null,"Cant search with both filters toggled on. Please only select 1 filter.", "Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "You must toggle the namefilter if you are searching by name");
         }
 
-        else if(!view.getTagFilterToggle().isSelected() && !view.getNameFilterToggle().isSelected())
-        {
-            JOptionPane.showMessageDialog(null, "Cant search with no filters selected. Please select a filter", "Error", JOptionPane.ERROR_MESSAGE);
-
-        }
     }
+
 
     /**
      * Currently working on adminView
@@ -149,7 +123,7 @@ public class homeController
         for(ChangeListener listener: adminListener){
             listener.stateChanged(adminSelected);
         }
-        
+
     }
 
     /**
@@ -173,7 +147,7 @@ public class homeController
      * @param newListener an input listener
      */
     public void addTagSearchListener(ChangeListener newListener){
-        tagSearchListener.add(newListener);
+        tagMenuListener.add(newListener);
     }
 
     /**
