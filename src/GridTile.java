@@ -46,6 +46,7 @@ public class GridTile extends JButton
         tileColors[6] = Color.ORANGE; // Product location
 
         repaint();
+        updateTooltip();
     }
 
 
@@ -77,6 +78,7 @@ public class GridTile extends JButton
     {
         gridState = newState;
         repaint();
+        updateTooltip();
     }
 
 
@@ -91,6 +93,24 @@ public class GridTile extends JButton
         Graphics2D tileGraphics = (Graphics2D)graphics;
         tileGraphics.setColor(tileColors[getGridState()]);
         tileGraphics.fillRect(0, 0, getWidth(), getHeight());
+    }
+
+    /**
+     * Method to set the tooltip text of the grid tile using the state of the grid tile.
+     */
+    private void updateTooltip()
+    {
+        switch (gridState)
+        {
+            case 0 -> setToolTipText("Blank Tile");
+            case 1 -> setToolTipText("Shelf");
+            case 2 -> setToolTipText("Path");
+            case 3 -> setToolTipText("Wall");
+            case 4 -> setToolTipText("Path to Product");
+            case 5 -> setToolTipText("Kiosk Location");
+            case 6 -> setToolTipText("Product Location");
+            default -> setToolTipText("???");
+        }
     }
 
 
