@@ -57,12 +57,6 @@ public class userController {
     {
         uView = v;
         d = data;
-        initView();
-    }
-
-    public void initView()
-    {
-        uView.getUserPassword().setText("Search here");
     }
 
     public void initController()
