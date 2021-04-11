@@ -94,12 +94,14 @@ public class DynamicMain extends JFrame{
                         productSelection pSelection = new productSelection(tC.getRetrievedProducts(), getTestDatabase().getDatabase());
                         viewSet.add(pSelection, "pSelection");
                         cardlayout.show(viewSet, "pSelection");
-                        viewSet.remove(tM);
+                        //viewSet.remove(tM);
 
                         pSelection.addCancelListener(new ChangeListener() {
                             @Override
                             public void stateChanged(ChangeEvent e) {
-                                cardlayout.show(viewSet, "v");
+//                                cardlayout.show(viewSet, "v");
+//                                viewSet.remove(pSelection);
+                                cardlayout.show(viewSet, "tM");
                                 viewSet.remove(pSelection);
                             }
                         });
