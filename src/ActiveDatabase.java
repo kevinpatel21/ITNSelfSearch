@@ -86,6 +86,15 @@ public class ActiveDatabase implements Cloneable{
         return activeDatabase.get(0).getStoreMap();
     }
 
+    /**
+     * Function used to retrieve a arraylist that stores map data, used in databaseimport
+     * @return Returns arraylist that stores map data
+     */
+    public ArrayList<String> getStoreMapArrayList(){
+        return activeDatabase.get(0).getStoreMapArrayList();
+    }
+
+
     //Sets
     /**
      * Get method used to set map store data

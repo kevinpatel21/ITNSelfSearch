@@ -24,7 +24,7 @@ public class DatabaseDisplay extends JPanel {
         databaseContents += "\n\nProducts: " + inputDatabase.getProductCounter() +"\n\n";
 
         for (Product product: inputDatabase.getProductCatalogue()){
-            databaseContents += product.getProductName() + ": " + product.getProductPrice();
+            databaseContents += product.getProductName() + ": $" + product.getProductPrice();
             databaseContents += ", (" + product.getProductLocation().getX() + ", " + product.productLocation.getY() + ")";
 
             for(String tag: product.getProductTags()){
@@ -47,7 +47,7 @@ public class DatabaseDisplay extends JPanel {
         }
 
         //Setting up the look/design of the panel
-        databasePreview = new JTextArea(databaseContents, 10, 20);
+        databasePreview = new JTextArea(databaseContents, 14, 20);
         databasePreview.setEditable(false);
         JScrollPane displayScroll = new JScrollPane(databasePreview, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 

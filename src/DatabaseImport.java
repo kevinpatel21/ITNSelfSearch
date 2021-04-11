@@ -36,10 +36,11 @@ public class DatabaseImport {
      * @param databaseProducts productCatalogue ArrayList from Database Object
      * @param databasePasswords adminPasswords ArrayList from Database Object
      */
-    public void importDatabase(ArrayList<Product> databaseProducts, ArrayList<String> storeTags, ArrayList<String> databasePasswords, ArrayList<Coordinate> kioskCoordinate){
+    public void importDatabase(ArrayList<Product> databaseProducts, ArrayList<String> storeTags, ArrayList<String> databasePasswords, ArrayList<Coordinate> kioskCoordinate, ArrayList<String> mapData){
         databasePasswords.clear();//Ensures that all previous passwords are erased
         databaseProducts.clear();//Ensures that all previous products are erased
         kioskCoordinate.clear();//Ensures that previous kiosk coordinate is erased
+        mapData.clear();
 
         JSONParser fileParser = new JSONParser();//Variable used to parse input file contents
 
@@ -111,6 +112,9 @@ public class DatabaseImport {
             //Checking if no passwords were read. If no passwords read, white space is added as a password (prevents admin from locking themselves out of software)
             if(databasePasswords.size() == 0)
                 databasePasswords.add("");
+
+            String importedMap = (String) jsonObject.get("mapData");
+            mapData.add(importedMap);
 
             imported = true;
         }

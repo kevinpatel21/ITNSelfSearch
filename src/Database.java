@@ -14,7 +14,7 @@ public class Database implements Cloneable{
     //Attributes
     private ArrayList<Product> productCatalogue;//ArrayList that stores Products
     private ArrayList<String> adminPasswords;//ArrayList that stores passwords
-    String storeMap;//Map of the store
+    private ArrayList<String> storeMap;//Map of the store
     private ArrayList<Coordinate> kioskLocation;//Coordinate of kiosk
     private ArrayList<String> storeTags;//ArrayList that imported store product tags used for tag search
 
@@ -28,8 +28,9 @@ public class Database implements Cloneable{
         productCatalogue = new ArrayList<Product>();
         storeTags = new ArrayList<String>();
         adminPasswords = new ArrayList<String>();
-        adminPasswords.add(defaultPassword);
-        storeMap = "";
+        adminPasswords.add(0, defaultPassword);
+        storeMap = new ArrayList<String>();
+        storeMap.add("");
         kioskLocation = new ArrayList<Coordinate>();
         kioskLocation.add(0, new Coordinate());
     }
@@ -42,7 +43,8 @@ public class Database implements Cloneable{
         storeTags = new ArrayList<String>();
         adminPasswords = new ArrayList<String>();
         adminPasswords.add("");
-        storeMap = "";
+        storeMap = new ArrayList<String>();
+        storeMap.add("");
         kioskLocation = new ArrayList<Coordinate>();
         kioskLocation.add(0, new Coordinate());
     }
@@ -70,7 +72,8 @@ public class Database implements Cloneable{
      * @param inputMap Map that will be stored in the database
      */
     public void setStoreMap(String inputMap){
-        storeMap = inputMap;
+        storeMap.clear();
+        storeMap.add(0, inputMap);
     }
 
     /**
@@ -79,7 +82,7 @@ public class Database implements Cloneable{
      */
     public void setKioskLocation(Coordinate inputCoordinate){
         kioskLocation.clear();
-        kioskLocation.add(inputCoordinate);
+        kioskLocation.add(0, inputCoordinate);
     }
 
 
@@ -89,6 +92,14 @@ public class Database implements Cloneable{
      * @return Returns currently stored map in the database
      */
     public String getStoreMap(){
+        return storeMap.get(0);
+    }
+
+    /**
+     * Function used to retrieve a arraylist that stores map data, used in databaseimport
+     * @return Returns arraylist that stores map data
+     */
+    public ArrayList<String> getStoreMapArrayList(){
         return storeMap;
     }
 
@@ -208,6 +219,7 @@ public class Database implements Cloneable{
             databaseClone.storeTags = (ArrayList<String>) storeTags.clone();
             databaseClone.productCatalogue = (ArrayList<Product>) productCatalogue.clone();
             databaseClone.kioskLocation = (ArrayList<Coordinate>) kioskLocation.clone();
+            databaseClone.storeMap = (ArrayList<String>) storeMap.clone();
 
             return databaseClone;
         } catch (CloneNotSupportedException e) {
