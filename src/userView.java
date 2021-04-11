@@ -5,7 +5,7 @@ public class userView extends JPanel
 {
     private JLabel password;
     private JLabel info;
-    private JTextField userPassword;
+    private JPasswordField userPassword;
     private JButton enterButton;
     private JButton backButton;
 
@@ -25,7 +25,7 @@ public class userView extends JPanel
 
         // Create our variables for our GUI components
         password = new JLabel("Password:");
-        userPassword = new JTextField();
+        userPassword = new JPasswordField();
         info =new JLabel("Password Required");
         enterButton = new JButton("Enter");
         backButton = new JButton("Back");
@@ -96,7 +96,7 @@ public class userView extends JPanel
         return backButton;
     }
 
-    public void setUserPassword(JTextField userPassword)
+    public void setUserPassword(JPasswordField userPassword)
     {
         this.userPassword = userPassword;
     }
