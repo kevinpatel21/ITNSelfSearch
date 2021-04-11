@@ -1,7 +1,11 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class tagMenu extends JPanel
@@ -22,6 +26,9 @@ public class tagMenu extends JPanel
     private JButton search;
     private JButton cancel;
     private JTextArea textArea;
+
+    // Button listener arrays
+    private final ArrayList<ChangeListener> cancelListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
 
     private JList listOfButtons;
@@ -56,14 +63,14 @@ public class tagMenu extends JPanel
 
     public void createPanel()
     {
-        // Set up thr frame with a few settings
+        /*// Set up thr frame with a few settings
         frame2 = new JFrame();
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame2.setSize(600, 400);
         frame2.setResizable(true);
         frame2.setLocationRelativeTo(null);
         frame2.setVisible(true);
-        frame2.setTitle("Tag Menu");
+        frame2.setTitle("Tag Menu"); */
 
         // Declare our different panels needed. We need a total of 3
         buttonPanel = new JPanel();
@@ -98,8 +105,20 @@ public class tagMenu extends JPanel
         this.add(listPanel, BorderLayout.CENTER);
         this.add(buttonPanel, BorderLayout.PAGE_END);
 
-        frame2.add(this);
+        //frame2.add(this);
         this.setBackground(Color.LIGHT_GRAY);
+
+        // Button Listeners
+        cancel.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ChangeEvent mainSelected = new ChangeEvent(this);
+                for(ChangeListener listener: cancelListener){
+                    listener.stateChanged(mainSelected);
+                }
+            }
+        });
 
     }
 
@@ -113,10 +132,25 @@ public class tagMenu extends JPanel
         return search;
     }
 
+    public JButton getCancel()
+    {
+        return cancel;
+    }
+
     public ArrayList<String> getUniqueTags()
     {
         return uniqueTags;
     }
+
+    /**
+     * Function used to determine if user clicks on main menu
+     * @param newListener an input listener
+     */
+    public void addCancelListener(ChangeListener newListener)
+    {
+        cancelListener.add(newListener);
+    }
+
 
 
 }
