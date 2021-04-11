@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -69,20 +71,21 @@ public class tagMenu extends JPanel
 
         // Set the layout for our different panels
         BoxLayout boxlayout = new BoxLayout(listPanel, BoxLayout.Y_AXIS);
-
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.LINE_AXIS));
-        listPanel.setLayout(boxlayout);
         this.setLayout(new BorderLayout());
 
+        listOfButtons = new JList(uniqueTags.toArray());
         tag = new JLabel("Tag Menu");
         search = new JButton("Search");
         cancel = new JButton("Cancel");
-        scrollPane = new JScrollPane(listOfButtons, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-        listOfButtons = new JList(uniqueTags.toArray());
+        listOfButtons.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        listOfButtons.setFont(new Font("Serif", Font.ITALIC, 14));
+        scrollPane = new JScrollPane();
+        scrollPane.setViewportView(listOfButtons);
+        listOfButtons.setLayoutOrientation(JList.VERTICAL);
+        scrollPane.setPreferredSize(new Dimension(570,300));
 
-        listPanel.add(tag);
-        listPanel.setBorder(BorderFactory.createEmptyBorder(0,200,0,0));
 
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
         buttonPanel.add(Box.createHorizontalGlue());
@@ -90,22 +93,29 @@ public class tagMenu extends JPanel
         buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
         buttonPanel.add(cancel);
 
-        // Set the buttons into the listPanel
-        /*for(int i = 0; i < arrayButtons.size(); i++)
-        {
-            listPanel.add(arrayButtons.get(i));
-            listPanel.add(Box.createRigidArea(new Dimension(0,15)));
-        } */
+        listPanel.add(scrollPane);
 
-        listPanel.add(listOfButtons);
-
-        this.add(scrollPane, BorderLayout.WEST);
         this.add(listPanel, BorderLayout.CENTER);
         this.add(buttonPanel, BorderLayout.PAGE_END);
 
         frame2.add(this);
         this.setBackground(Color.LIGHT_GRAY);
 
+    }
+
+    public JList getListOfButtons()
+    {
+        return listOfButtons;
+    }
+
+    public JButton getSearch()
+    {
+        return search;
+    }
+
+    public ArrayList<String> getUniqueTags()
+    {
+        return uniqueTags;
     }
 
 
