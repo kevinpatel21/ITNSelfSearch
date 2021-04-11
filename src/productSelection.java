@@ -75,7 +75,7 @@ public class productSelection extends JPanel
 
         // Lets declare our buttons that we need
         select = new JButton("Select");
-        cancel = new JButton("Cancel");
+        cancel = new JButton("Back");
 
         // Create our list of products and store our product list inside it. Also set some settings for it
         listOfProducts = new JList(productNames.toArray());
