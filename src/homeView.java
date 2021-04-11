@@ -10,7 +10,7 @@ public class homeView extends JPanel
 {
     // Variables needed for the Swing framework to display UI to user
     private JToggleButton nameFilterToggle; //
-    private JToggleButton tagFilterToggle; //
+    private JButton tagMenuButton; //
     private JButton searchButton; //
     private JTextField userText; //
     private JLabel ITN; //
@@ -29,7 +29,7 @@ public class homeView extends JPanel
 
         //frame = new JFrame();
 //        addComponents(frame.getContentPane());
-          addComponents(this);
+        addComponents(this);
 //        // Set up the frame with a few settings.
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        frame.setSize(600, 400);
@@ -57,7 +57,7 @@ public class homeView extends JPanel
         searchButton = new JButton("Search");
         adminButton = new JButton("Admin");
         nameFilterToggle = new JToggleButton("Name Filter ");
-        tagFilterToggle = new JToggleButton("Tag Filter ");
+        tagMenuButton = new JButton("Tag Menu ");
 
         // Set the settings for our adminButton component
         c.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -107,8 +107,8 @@ public class homeView extends JPanel
         c.weightx = 0.0;
         c.weighty = 0.0;
         c.insets = new Insets(0,0,50,167);
-        tagFilterToggle.setPreferredSize(new Dimension(125,25));
-        pane.add(tagFilterToggle, c);
+        tagMenuButton.setPreferredSize(new Dimension(125,25));
+        pane.add(tagMenuButton, c);
 
         // Just messing with the color
         pane.setBackground(Color.LIGHT_GRAY);
@@ -158,12 +158,12 @@ public class homeView extends JPanel
         this.nameFilterToggle = nameFilterToggle;
     }
 
-    public JToggleButton getTagFilterToggle() {
-        return tagFilterToggle;
+    public JButton getTagMenuButton() {
+        return tagMenuButton;
     }
 
-    public void setTagFilterToggle(JToggleButton tagFilterToggle) {
-        this.tagFilterToggle = tagFilterToggle;
+    public void setTagMenuButton(JButton tagMenuButton) {
+        this.tagMenuButton = tagMenuButton;
     }
 
     public JButton getSearchButton() {
