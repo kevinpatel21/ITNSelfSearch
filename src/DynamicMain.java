@@ -125,7 +125,9 @@ public class DynamicMain extends JFrame{
                                 // Set it to show pGUI
                                 viewSet.add(pGUI, "pGUI");
                                 cardlayout.show(viewSet, "pGUI");
+
                                 viewSet.remove(pSelection);
+                                viewSet.remove(tM);
 
                                 //Listens for when user clicks the main menu button (to exit product view)
                                 pGUI.addMainListener(new ChangeListener() {
