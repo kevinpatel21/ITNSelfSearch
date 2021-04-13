@@ -11,19 +11,15 @@ import java.util.ArrayList;
 
 public class ProductGUI extends JPanel {
 
-    String productName;
-    Product displayedProduct;
-    String databaseContents;
+    private String productName;
+    private Product displayedProduct;
+    private String databaseContents;
     private JTextArea databasePreview;
     final ArrayList<ChangeListener> mainlistener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     public ProductGUI(Product inputProduct, Coordinate kioskCoordinate, String storeMap) {
 
-        //JFrame frame = new JFrame("Product Display");
 
-//        frame.setSize(300, 300);
-//        frame.setLocationRelativeTo(null);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
 
         databaseContents = "";
