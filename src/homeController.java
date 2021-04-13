@@ -93,7 +93,6 @@ public class homeController
             else if(!database.validProductName(view.getUserText().getText()))
             {
                 JOptionPane.showMessageDialog(null, "There was no product in the database with the name " + "'" +view.getUserText().getText() + "'", "Product Not Found!", JOptionPane.ERROR_MESSAGE);
-                System.out.println("There was no product in the database with the name " + "'" +view.getUserText().getText() + "'");
             }
         }
         // IF the user presses search without toggling nameFilter then display a JOptionPane
