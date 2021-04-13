@@ -32,26 +32,6 @@ public class TagFilter
         // execute this logic
         if(matchingProducts.isEmpty())
         {
-            System.out.println("There were no products that matched ALL tags \n");
-
-            System.out.println("Here is a list of items that included the tags: ");
-
-            for(int i = 0; i < inputTags.size(); i++)
-            {
-                System.out.print(inputTags.get(i));
-                if(i == inputTags.size() - 1)
-                {
-                    System.out.print(":");
-                }
-                else
-                {
-                    System.out.print(", ");
-                }
-
-            }
-
-            System.out.println("\n");
-
             // Search the catalogue for any products that contains all input tags and add it to matchingProducts list
             for (Product product: d.getProductCatalogue())
             {

@@ -39,7 +39,7 @@ public class MapEditor extends MapTemplate
             public void actionPerformed(ActionEvent e)
             {
                 // DEBUG: Print map save data to the console
-                System.out.println(saveMapData());
+                //System.out.println(saveMapData());
 
                 // save map to database
                 ChangeEvent saveMapAttempt = new ChangeEvent(this);

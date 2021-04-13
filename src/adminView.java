@@ -93,7 +93,6 @@ public class adminView extends JPanel
      */
     public adminView()
     {
-        System.out.println("GUI adminView initalized");
         createPanel();
     }
 

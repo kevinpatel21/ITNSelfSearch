@@ -13,7 +13,6 @@ public class userView extends JPanel
 
     public userView()
     {
-        System.out.println("Initalized userView GUI");
         createPanel();
     }
 

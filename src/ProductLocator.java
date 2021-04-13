@@ -190,11 +190,11 @@ public class ProductLocator extends MapTemplate
         {
             for(int i = 0; i < mapSizeX; i++)
             {
-                System.out.printf("%4s", distanceMap[i][j] + " ");
+                //System.out.printf("%4s", distanceMap[i][j] + " ");
             }
-            System.out.print('\n');
+            //System.out.print('\n');
         }
-        System.out.print('\n');
+        //System.out.print('\n');
         // END OF DEBUG CODE
     }
 

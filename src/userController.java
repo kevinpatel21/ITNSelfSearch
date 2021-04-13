@@ -35,7 +35,6 @@ public class userController {
         {
             if(inputPassword.equals(correctPassword.get(i)))
             {
-                System.out.println("The password was correct");
                 adminMode = true;
 
                 ChangeEvent adminLoginSelected = new ChangeEvent(this);
