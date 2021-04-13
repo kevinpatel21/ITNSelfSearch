@@ -100,7 +100,7 @@ public class tagMenuController
             }
 
             // Clear the inputTags array
-            inputTags.clear();
+            //inputTags.clear();
         }
 
     }
@@ -129,6 +129,11 @@ public class tagMenuController
     public ArrayList<Product> getRetrievedProducts()
     {
         return retrievedProducts;
+    }
+
+    public ArrayList<String> getInputTags()
+    {
+        return inputTags;
     }
 
 }

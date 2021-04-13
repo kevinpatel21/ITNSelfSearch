@@ -99,7 +99,7 @@ public class DynamicMain extends JFrame{
                     @Override
                     public void stateChanged(ChangeEvent e) {
                         // Call productSelection because this is the next panel needed
-                        productSelection pSelection = new productSelection(tC.getRetrievedProducts(), getTestDatabase().getDatabase());
+                        productSelection pSelection = new productSelection(tC.getRetrievedProducts(), getTestDatabase().getDatabase(), tC);
 
                         // Add it to the viewSet panel and show it
                         viewSet.add(pSelection, "pSelection");

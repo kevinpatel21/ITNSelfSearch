@@ -21,6 +21,7 @@ public class tagMenu extends JPanel
     private JButton cancel;
     private JList listOfButtons;
     private JLabel tag;
+    private JLabel instructionMultiple;
 
     // Declare our two JPanels for our JButtons and JList
     private JPanel buttonPanel;
@@ -61,6 +62,8 @@ public class tagMenu extends JPanel
         uniqueTags = d.getStoreTags();
         listOfButtons = new JList(uniqueTags.toArray());
         tag = new JLabel("Tag Menu");
+        instructionMultiple = new JLabel("For multiple selection, CTRL left click items");
+        instructionMultiple.setFont(new Font("Arial", Font.PLAIN, 12));
         search = new JButton("Search");
         cancel = new JButton("Cancel");
 
@@ -72,9 +75,10 @@ public class tagMenu extends JPanel
         // Declare the scroll Pane and set the viewport to the JList. Also set the preferred size
         scrollPane = new JScrollPane();
         scrollPane.setViewportView(listOfButtons);
-        scrollPane.setPreferredSize(new Dimension(570,300));
+        scrollPane.setPreferredSize(new Dimension(570,270));
 
         // Now that the scrollPane is set up add it to the listPanel
+        listPanel.add(instructionMultiple);
         listPanel.add(scrollPane);
 
         // Set the buttonPanel settings so that the buttons appear in the bottom right

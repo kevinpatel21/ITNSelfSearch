@@ -26,7 +26,7 @@ public class userView extends JPanel
         // Create our variables for our GUI components
         password = new JLabel("Password:");
         userPassword = new JPasswordField();
-        info =new JLabel("Password Required");
+        info =new JLabel("Password Required for Administrator Access");
         enterButton = new JButton("Enter");
         backButton = new JButton("Back");
 
@@ -58,8 +58,9 @@ public class userView extends JPanel
         c.gridwidth = 1;
         c.weightx = 1.0;
         c.weighty = 1.0;
-        c.insets = new Insets(50,80,0,0);
-        info.setPreferredSize(new Dimension(200,25));
+        c.insets = new Insets(50,30,0,0);
+        info.setPreferredSize(new Dimension(400,25));
+        info.setFont(new Font("Verdana", Font.BOLD, 15));
         this.add(info, c);
 
         // Set the settings for the enter button

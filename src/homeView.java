@@ -41,6 +41,7 @@ public class homeView extends JPanel
 
         // Create our variables for our GUI components
         ITN = new JLabel("ITN SELF SEARCH");
+        ITN.setFont(new Font("Verdana", Font.BOLD, 20));
         userText = new JTextField("Search here");
         searchButton = new JButton("Search");
         adminButton = new JButton("Admin");

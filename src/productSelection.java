@@ -17,15 +17,17 @@ public class productSelection extends JPanel
     // This is what we will store our products into so we can display it on screen
     private JList listOfProducts;
 
-    // Create the buttons for select and cancel
+    // Create the buttons for select and cancel and a JLabel
     private JButton select;
     private JButton cancel;
+    private JTextArea tagsSelected;
 
     // Our arraylist that has the product names
     private ArrayList<String> productNames = new ArrayList();
 
     // Database
     private Database database;
+    private tagMenuController tagController;
 
     // Variable for product
     private Product p;
@@ -39,8 +41,9 @@ public class productSelection extends JPanel
      * @param pList it takes in the ArrayList productList
      * @param d it takes in the Database d
      */
-    public productSelection(ArrayList<Product> pList, Database d)
+    public productSelection(ArrayList<Product> pList, Database d, tagMenuController tC)
     {
+        tagController = tC;
         productList = pList;
         database = d;
         getProductNames();
@@ -59,6 +62,9 @@ public class productSelection extends JPanel
         }
     }
 
+    /**
+     * This function is going to create our Panel
+     */
     private void createPanel()
     {
 
@@ -75,6 +81,13 @@ public class productSelection extends JPanel
         select = new JButton("Select");
         cancel = new JButton("Back");
 
+        // Now lets declare our JTextArea that lets us know which tags we are looking at
+        tagsSelected = new JTextArea("Tags Selected: ");
+        tagsSelected.setFont(new Font("Arial", Font.PLAIN, 12));
+        tagsSelected.setText(tagsSelected.getText() + tagController.getInputTags());
+        Color color = buttonPanel.getBackground();
+        tagsSelected.setBackground(color);
+
         // Create our list of products and store our product list inside it. Also set some settings for it
         listOfProducts = new JList(productNames.toArray());
         listOfProducts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -84,7 +97,7 @@ public class productSelection extends JPanel
         // Now we need to create the scroll pane incase the list gets to be too long
         scrollPane = new JScrollPane();
         scrollPane.setViewportView(listOfProducts);
-        scrollPane.setPreferredSize(new Dimension(570,300));
+        scrollPane.setPreferredSize(new Dimension(570,270));
 
         // Now lets create the settings for our buttonPanel for our select and cancel buttons
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
@@ -94,6 +107,7 @@ public class productSelection extends JPanel
         buttonPanel.add(cancel);
 
         // Lets now add the scrollpane to our listPanel
+        listPanel.add(tagsSelected);
         listPanel.add(scrollPane);
 
         // Now lets add both listPanel and buttonPanel to our masterPanel that is being extended
@@ -148,6 +162,9 @@ public class productSelection extends JPanel
                     // If this executes then we found our product
                     p = products.get(i);
 
+                    // Clears the inputTags when they hit select
+                    tagController.getInputTags().clear();
+
                     // Once it has found it then tell dynamic main to switch panels to the ProductGUI panel
                     ChangeEvent selectSelected = new ChangeEvent(this);
                     for(ChangeListener listener: selectListener)
@@ -165,6 +182,9 @@ public class productSelection extends JPanel
      */
     private void updateCancel()
     {
+        // Clears the inputTags if they hit cancel
+        tagController.getInputTags().clear();
+
         // Updates dynamic main to switch the panel to tagMenu from productSelection
         ChangeEvent cancelSelected = new ChangeEvent(this);
         for(ChangeListener listener: cancelListener)
@@ -196,6 +216,11 @@ public class productSelection extends JPanel
     public Product getP()
     {
         return p;
+    }
+
+    public JTextArea getTagsSelected()
+    {
+        return tagsSelected;
     }
 
 }
