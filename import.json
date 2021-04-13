@@ -151,7 +151,7 @@
     {
       "productName": "Airpods",
       "productPrice": 150.99,
-      "productLocationX": "13",
+      "productLocationX": "7",
       "productLocationY": "4",
       "productTags": [
         "Appliance",
@@ -163,8 +163,8 @@
     {
       "productName": "TCL 50 inch TV",
       "productPrice": 299.99,
-      "productLocationX": "12",
-      "productLocationY": "1",
+      "productLocationX": "7",
+      "productLocationY": "5",
       "productTags": [
         "Electronic",
         "Smart TV",
@@ -175,8 +175,8 @@
     {
       "productName": "Apple Watch",
       "productPrice": 199.99,
-      "productLocationX": "11",
-      "productLocationY": "4",
+      "productLocationX": "7",
+      "productLocationY": "6",
       "productTags": [
         "Appliance",
         "Electronic",
@@ -187,8 +187,8 @@
     {
       "productName": "Playstation 5",
       "productPrice": 549.99,
-      "productLocationX": "5",
-      "productLocationY": "1",
+      "productLocationX": "7",
+      "productLocationY": "8",
       "productTags": [
         "Electronic",
         "White",
