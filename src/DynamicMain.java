@@ -24,30 +24,32 @@ public class DynamicMain extends JFrame{
         this.setVisible(true);
         this.setTitle("ITNSelfSearch");
 
-        //Updates database if admin finds an import file and confirms import
-        /**
-         * Use this section below as main
-         */
-
+        // Declare variables for NameFilter and TagFilter
         NameFilter nf = new NameFilter();
         TagFilter tf = new TagFilter();
 
+        // Declare variables for homeView and homeController and call initController
         homeView v = new homeView();
         homeController c = new homeController(v, nf, tf, getTestDatabase().getDatabase());
         c.initController();
 
+        // Declare our viewSet JPanel that we will use as the cardLayout
         JPanel viewSet = new JPanel(new CardLayout());
 
-        //Adding panels to the frame cardset
+        // The first panel that needs to be added to viewSet is the homeView panel
         viewSet.add(v, "v");
         this.add(viewSet);
         CardLayout cardlayout = (CardLayout) (viewSet.getLayout());
 
 
-        //Listens for when user searches for product name
+        // The rest of the code is strictly just change listeners that listens for when our user selects buttons.
+        // It will then switch panels based on what button was selected
+
+        // Listens for when user searches for product name
         c.addNameSearchListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
+                // Call the ProductGUI function because this is the next panel needed
                 ProductGUI testView = new ProductGUI(c.getRetrievedProduct(), testDatabase.getKioskLocation(), testDatabase.getStoreMap());
 
                 //Changing card set to product display
@@ -66,19 +68,24 @@ public class DynamicMain extends JFrame{
             }
         });
 
-        //Listens for when user searches by product tags
+        //Listens for when user selects tagMenu
         c.addTagSearchListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
+
+                // Call the tagMenu because that is the next panel used
                 tagMenu tM = new tagMenu(getTestDatabase().getDatabase());
+
+                // Call the tagMenu Controller so we can control the tagMenu
                 tagMenuController tC = new tagMenuController(tM, getTestDatabase().getDatabase(), tf);
                 tC.initController();
 
-                //Changing card set to tag display
+                // Changing card set to tag Menu
                 viewSet.add(tM, "tM");
                 cardlayout.show(viewSet, "tM");
 
-                //Listens for when user clicks the main menu button (to exit product view)
+                // Now inside tagMenu we have other buttons to listen for so this listener is nested inside tagMenu
+                // Listens for when user clicks the main menu button (to exit product view)
                 tC.addBackListener(new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
@@ -91,18 +98,43 @@ public class DynamicMain extends JFrame{
                 tC.addSearchListener(new ChangeListener() {
                     @Override
                     public void stateChanged(ChangeEvent e) {
+                        // Call productSelection because this is the next panel needed
                         productSelection pSelection = new productSelection(tC.getRetrievedProducts(), getTestDatabase().getDatabase());
+
+                        // Add it to the viewSet panel and show it
                         viewSet.add(pSelection, "pSelection");
                         cardlayout.show(viewSet, "pSelection");
-                        //viewSet.remove(tM);
 
+                        // Now inside the pSeelction panel there are buttons we need to listen for so these listeners is nested inside it
+                        // Listen for cancel if it is selected then show the previous panel tagMenu
                         pSelection.addCancelListener(new ChangeListener() {
                             @Override
                             public void stateChanged(ChangeEvent e) {
-//                                cardlayout.show(viewSet, "v");
-//                                viewSet.remove(pSelection);
                                 cardlayout.show(viewSet, "tM");
                                 viewSet.remove(pSelection);
+                            }
+                        });
+
+                        // Listen for the select button if it is pressed then show the next and final panel ProductGUI
+                        pSelection.addSelectListener(new ChangeListener() {
+                            @Override
+                            public void stateChanged(ChangeEvent e) {
+                                // Call pGUI since it is next Panel needed
+                                ProductGUI pGUI = new ProductGUI(pSelection.getP(), testDatabase.getKioskLocation(), testDatabase.getStoreMap());
+
+                                // Set it to show pGUI
+                                viewSet.add(pGUI, "pGUI");
+                                cardlayout.show(viewSet, "pGUI");
+                                viewSet.remove(pSelection);
+
+                                //Listens for when user clicks the main menu button (to exit product view)
+                                pGUI.addMainListener(new ChangeListener() {
+                                    @Override
+                                    public void stateChanged(ChangeEvent e) {
+                                        cardlayout.show(viewSet, "v");
+                                        viewSet.remove(pGUI);
+                                    }
+                                });
                             }
                         });
 
