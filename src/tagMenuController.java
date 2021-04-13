@@ -99,8 +99,6 @@ public class tagMenuController
                 listener.stateChanged(searchSelected);
             }
 
-            // Clear the inputTags array
-            //inputTags.clear();
         }
 
     }

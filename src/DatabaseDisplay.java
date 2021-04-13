@@ -7,7 +7,7 @@ import java.awt.*;
 public class DatabaseDisplay extends JPanel {
     //Attributes
     private JTextArea databasePreview;//JTextArea used to store database contents
-    String databaseContents;//String var that holds data extracted from database
+    private String databaseContents;//String var that holds data extracted from database
 
     //Constructors
     /**
