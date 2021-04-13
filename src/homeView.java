@@ -15,8 +15,6 @@ public class homeView extends JPanel
     private JTextField userText; //
     private JLabel ITN; //
     private JButton adminButton; //
-    private boolean nameFilterBoolean; //
-    private boolean tagFilterBoolean; //
     private String text; //
     private JFrame frame; //
 
@@ -26,17 +24,7 @@ public class homeView extends JPanel
      */
     private void createFrame()
     {
-
-        //frame = new JFrame();
-//        addComponents(frame.getContentPane());
         addComponents(this);
-//        // Set up the frame with a few settings.
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setSize(600, 400);
-//        frame.setResizable(false);
-//        frame.setLocationRelativeTo(null);
-//        frame.setVisible(true);
-//        frame.setTitle("Homescreen");
     }
 
     /**
@@ -53,7 +41,7 @@ public class homeView extends JPanel
 
         // Create our variables for our GUI components
         ITN = new JLabel("ITN SELF SEARCH");
-        userText = new JTextField();
+        userText = new JTextField("Search here");
         searchButton = new JButton("Search");
         adminButton = new JButton("Admin");
         nameFilterToggle = new JToggleButton("Name Filter ");
@@ -116,94 +104,33 @@ public class homeView extends JPanel
     }
 
     /**
-     * Constructor for homeView. When this executes it will notify the console that you hit this function and call createFrame()
+     * Constructor for homeView GUI
      */
     public homeView()
     {
-        System.out.println("GUI Successfully loaded in homeView");
         createFrame();
     }
 
-    // The rest of the functions below are just setters and getters for our GUI components
-
-    public JFrame getFrame() {
-        return frame;
-    }
-
-    public void setFrame(JFrame frame) {
-        this.frame = frame;
-    }
-
-    public JLabel getITNLabel() {
-        return ITN;
-    }
-
-    public void setITNLabel(JLabel ITN) {
-        this.ITN = ITN;
-    }
+    // The rest of the functions below are just getters that are used for our GUI components that are needed for homeController
 
     public JTextField getUserText() {
         return userText;
-    }
-
-    public void setUserText(JTextField userText) {
-        this.userText = userText;
     }
 
     public JToggleButton getNameFilterToggle() {
         return nameFilterToggle;
     }
 
-    public void setNameFilterToggle(JToggleButton nameFilterToggle) {
-        this.nameFilterToggle = nameFilterToggle;
-    }
-
     public JButton getTagMenuButton() {
         return tagMenuButton;
-    }
-
-    public void setTagMenuButton(JButton tagMenuButton) {
-        this.tagMenuButton = tagMenuButton;
     }
 
     public JButton getSearchButton() {
         return searchButton;
     }
 
-    public void setSearchButton(JButton searchButton) {
-        this.searchButton = searchButton;
-    }
-
     public JButton getAdminButton() {
         return adminButton;
-    }
-
-    public void setAdminButton(JButton adminButton) {
-        this.adminButton = adminButton;
-    }
-
-    public boolean getNameFilterBoolean() {
-        return nameFilterBoolean;
-    }
-
-    public void setNameFilterBoolean(boolean nameFilterBoolean) {
-        this.nameFilterBoolean = nameFilterBoolean;
-    }
-
-    public boolean getTagFilterBoolean() {
-        return tagFilterBoolean;
-    }
-
-    public void setTagFilterBoolean(boolean tagFilterBoolean) {
-        this.tagFilterBoolean = tagFilterBoolean;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
 }

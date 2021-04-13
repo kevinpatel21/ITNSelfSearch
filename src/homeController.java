@@ -28,6 +28,7 @@ public class homeController
 
     /**
      * Constructor for homeController when you create the object for it you will initalize variables needed and go to the initView()
+     * We need access to homeView, nameFilter, TagFilter, and database
      */
     public homeController(homeView v, NameFilter nf, TagFilter tf, Database d)
     {
@@ -36,16 +37,6 @@ public class homeController
         view = v;
         database = d;
 
-        initView();
-    }
-
-
-    /**
-     * Sets the text in the text field
-     */
-    public void initView()
-    {
-        view.getUserText().setText("Search here");
     }
 
     /**
@@ -60,13 +51,17 @@ public class homeController
         view.getTagMenuButton().addActionListener(e -> callTagMenu());
     }
 
+    /**
+     * This function will only execute when we select TagMenu
+     */
     private void callTagMenu()
     {
+        // Updates dynamic main to switch panels to tagMenu
         ChangeEvent tagMenuSelected = new ChangeEvent(this);
         for(ChangeListener listener: tagMenuListener){
             listener.stateChanged(tagMenuSelected);
         }
-        System.out.println("Button worked");
+
     }
 
     /**
@@ -75,36 +70,33 @@ public class homeController
      */
     private void search()
     {
-        // This will execute if the namefilter is toggled and if the tagfilter is not selected
+        // This will execute if the namefilter is toggled
         if(view.getNameFilterToggle().isSelected())
         {
-
+            // If the userText is a validProductName then send the userText, and database into the nameFilter
             if(database.validProductName(view.getUserText().getText()))
             {
+                // Stores a product that is retrieved from nameFilter by sending it the userText and database
                 Product userProduct = namefilter.retrieveByName(view.getUserText().getText(), database);
 
-                System.out.print(userProduct.getProductName() + ": " + userProduct.getProductPrice());
-
-                for(String tag: userProduct.getProductTags())
-                {
-                    System.out.print(" ," + tag);
-                }
-
+                // Put the product into an ArrayList retrievedProduct
                 retrievedProduct = userProduct;
 
+                // Tell dynamic main to update and switch panels to ProductGUI
                 ChangeEvent nameSearchSelected = new ChangeEvent(this);
                 for(ChangeListener listener: nameSearchListener){
                     listener.stateChanged(nameSearchSelected);
                 }
 
-                System.out.println();
             }
+            // If the userText is not found in the databse then display a JOptionPane
             else if(!database.validProductName(view.getUserText().getText()))
             {
                 JOptionPane.showMessageDialog(null, "There was no product in the database with the name " + "'" +view.getUserText().getText() + "'", "Product Not Found!", JOptionPane.ERROR_MESSAGE);
                 System.out.println("There was no product in the database with the name " + "'" +view.getUserText().getText() + "'");
             }
         }
+        // IF the user presses search without toggling nameFilter then display a JOptionPane
         else if(!(view.getNameFilterToggle().isSelected()))
         {
             JOptionPane.showMessageDialog(null, "You must toggle the namefilter if you are searching by name");
@@ -114,11 +106,11 @@ public class homeController
 
 
     /**
-     * Currently working on adminView
+     * This function executes only IF the user selects admin
      */
     private void adminView()
     {
-        //adminView a = new adminView();
+        // Tells dynamic main to switch to the admin Panel
         ChangeEvent adminSelected = new ChangeEvent(this);
         for(ChangeListener listener: adminListener){
             listener.stateChanged(adminSelected);
