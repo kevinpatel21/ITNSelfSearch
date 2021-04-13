@@ -8,14 +8,39 @@
       "productTags": [
         "Blue",
         "Drink",
-        "Liquid"
+        "Liquid",
+        "Carbonated"
+      ]
+    },
+    {
+      "productName": "Root Beer",
+      "productPrice": 3.99,
+      "productLocationX": "8",
+      "productLocationY": "7",
+      "productTags": [
+        "Drink",
+        "Carbonated",
+        "Liquid",
+        "Brown"
+      ]
+    },
+    {
+      "productName": "Coke",
+      "productPrice": 3.99,
+      "productLocationX": "8",
+      "productLocationY": "8",
+      "productTags": [
+        "Drink",
+        "Carbonated",
+        "Liquid",
+        "Brown"
       ]
     },
     {
       "productName": "Apple",
       "productPrice": 1.99,
-      "productLocationX": "10",
-      "productLocationY": "3",
+      "productLocationX": "9",
+      "productLocationY": "1",
       "productTags": [
         "Red",
         "Fruit",
@@ -23,10 +48,32 @@
       ]
     },
     {
+      "productName": "Banana",
+      "productPrice": 0.99,
+      "productLocationX": "9",
+      "productLocationY": "2",
+      "productTags": [
+        "Yellow",
+        "Fruit",
+        "Food"
+      ]
+    },
+    {
+      "productName": "Blueberries",
+      "productPrice": 3.44,
+      "productLocationX": "9",
+      "productLocationY": "3",
+      "productTags": [
+        "Food",
+        "Fruit",
+        "Blue",
+      ]
+    },
+    {
       "productName": "Cheese Pizza",
       "productPrice": 7.99,
-      "productLocationX": "5",
-      "productLocationY": "5",
+      "productLocationX": "1",
+      "productLocationY": "2",
       "productTags": [
         "Yellow",
         "Food",
@@ -34,13 +81,60 @@
       ]
     },
     {
-      "productName": "Cheese Pizza2",
-      "productPrice": 7.99,
-      "productLocationX": "7",
-      "productLocationY": "6",
+      "productName": "Pepperoni Pizza",
+      "productPrice": 9.99,
+      "productLocationX": "1",
+      "productLocationY": "3",
       "productTags": [
         "Yellow",
+        "Food",
+        "Frozen",
+        "Meat"
+      ]
+    },
+    {
+      "productName": "Meat Balls",
+      "productPrice": 5.99,
+      "productLocationX": "1",
+      "productLocationY": "4",
+      "productTags": [
+        "Brown",
+        "Food",
+        "Frozen"
+      ]
+    },
+    {
+      "productName": "Bread",
+      "productPrice": 2.99,
+      "productLocationX": "1",
+      "productLocationY": "9",
+      "productTags": [
+        "Soft",
         "Food"
+      ]
+    },
+    {
+      "productName": "Milk",
+      "productPrice": 1.99,
+      "productLocationX": "4",
+      "productLocationY": "4",
+      "productTags": [
+        "Food",
+        "Cold",
+        "White",
+        "Liquid"
+      ]
+    },
+    {
+      "productName": "Orange Juice",
+      "productPrice": 3.99,
+      "productLocationX": "4",
+      "productLocationY": "5",
+      "productTags": [
+        "Food",
+        "Cold",
+        "Orange",
+        "Liquid"
       ]
     },
     {
@@ -50,45 +144,93 @@
       "productLocationY": "3",
       "productTags": [
         "Appliance",
+        "Black",
+        "Electronic"
+      ]
+    },
+    {
+      "productName": "Airpods",
+      "productPrice": 150.99,
+      "productLocationX": "13",
+      "productLocationY": "4",
+      "productTags": [
+        "Appliance",
+        "Electronic",
+        "Headphones",
+        "White"
+      ]
+    },
+    {
+      "productName": "TCL 50 inch TV",
+      "productPrice": 299.99,
+      "productLocationX": "12",
+      "productLocationY": "1",
+      "productTags": [
+        "Electronic",
+        "Smart TV",
+        "4K",
+        "Flat Screen"
+      ]
+    },
+    {
+      "productName": "Apple Watch",
+      "productPrice": 199.99,
+      "productLocationX": "11",
+      "productLocationY": "4",
+      "productTags": [
+        "Appliance",
+        "Electronic",
+        "White",
         "Black"
       ]
     },
     {
-      "productName": "Meat Balls",
-      "productPrice": 5.99,
-      "productLocationX": "11",
+      "productName": "Playstation 5",
+      "productPrice": 549.99,
+      "productLocationX": "5",
       "productLocationY": "1",
       "productTags": [
-        "Brown",
-        "Food",
-        "Frozen"
+        "Electronic",
+        "White",
+        "Console",
+        "Gaming"
       ]
-    }
+    },
   ],
 
   "adminPasswords": [
-    "123",
-    "XYZ",
-    "Hello World"
+    "Harrison",
+    "Kevin",
+    "Mike",
+    "Bradley"
   ],
 
   "storeTags": [
-    "Red",
-    "Green",
     "Blue",
-    "Yellow",
-    "Black",
-    "White",
-    "Brown",
-    "Frozen",
-    "Liquid",
-    "Food",
     "Drink",
+    "Liquid",
+    "Carbonated",
+    "Brown",
+    "Red",
     "Fruit",
-    "Vegetables",
+    "Food",
+    "Yellow",
+    "Blue",
+    "Frozen",
     "Meat",
+    "Soft",
+    "Cold",
+    "White",
+    "Orange",
     "Appliance",
-    "Tool"
+    "Black",
+    "Electronic",
+    "Headphones",
+    "Smart TV",
+    "4K",
+    "Flat Screen",
+    "Console",
+    "Gaming",
   ],
 
   "kioskLocationX": "8",
