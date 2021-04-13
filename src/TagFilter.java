@@ -28,7 +28,8 @@ public class TagFilter
         }
 
 
-
+        // If the matchingProducts arraylist is empty then our first for loop did not do anything and we need to
+        // execute this logic
         if(matchingProducts.isEmpty())
         {
             System.out.println("There were no products that matched ALL tags \n");

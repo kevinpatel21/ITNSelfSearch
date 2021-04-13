@@ -24,9 +24,6 @@ public class productSelection extends JPanel
     // Our arraylist that has the product names
     private ArrayList<String> productNames = new ArrayList();
 
-    // Test Frame
-    private JFrame frame3;
-
     // Database
     private Database database;
 
@@ -37,6 +34,11 @@ public class productSelection extends JPanel
     private final ArrayList<ChangeListener> cancelListener = new ArrayList<ChangeListener>();//ArrayList of listeners
     private final ArrayList<ChangeListener> selectListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
+    /**
+     * This is the constructor for our productSelection GUI
+     * @param pList it takes in the ArrayList productList
+     * @param d it takes in the Database d
+     */
     public productSelection(ArrayList<Product> pList, Database d)
     {
         productList = pList;
@@ -45,6 +47,10 @@ public class productSelection extends JPanel
         createPanel();
     }
 
+    /**
+     * This function is simply going to get the productNames from the productList and store it into an ArrayList productNames
+     *
+     */
     private void getProductNames()
     {
         for(Product product: productList)
@@ -53,16 +59,8 @@ public class productSelection extends JPanel
         }
     }
 
-    public void createPanel()
+    private void createPanel()
     {
-        /*// Set up thr frame with a few settings
-        frame3 = new JFrame();
-        frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame3.setSize(600, 400);
-        frame3.setResizable(true);
-        frame3.setLocationRelativeTo(null);
-        frame3.setVisible(true);
-        frame3.setTitle("Tag Menu"); */
 
         // Declare our panels that we need
         buttonPanel = new JPanel();
@@ -102,53 +100,72 @@ public class productSelection extends JPanel
         this.add(listPanel, BorderLayout.CENTER);
         this.add(buttonPanel, BorderLayout.PAGE_END);
 
-        //frame3.add(this);
-
         // Add action listeners for the select button and cancel button
         select.addActionListener(e -> prepareProduct());
         cancel.addActionListener(e -> updateCancel());
 
     }
 
+    /**
+     * This function is only executed if the user selects the select button
+     */
     private void prepareProduct()
     {
+        // This is the variable that we are going to put the selected product into
         p = new Product();
+        // This array list is going to help us find the correct product in the database
         ArrayList<Product> products = new ArrayList();
+
+        // This is our selection variable where we will get the selected input from user
+        // We will later compare this variable with the products ArrayList
         String selection = " ";
 
 
+        // Checks to see if the listOfProducts is empty if so Display a JOptionPane MessageDialog
         if(listOfProducts.isSelectionEmpty())
         {
             JOptionPane.showMessageDialog(null, "You have not made any selections");
         }
+        // Other wise listOfProducts is not empty
         else
         {
+            // Set the selection variable equal to the userSelection. So if the user selects apple
+            // Put apple into selection by using listOfProducts
             selection = listOfProducts.getSelectedValue().toString();
+
+            // Then we need to get the productCatalogue from database and put it into products
+            // This way we can compare the selection variable with product names in the database
+            // And determine if it is equal
             products = database.getProductCatalogue();
 
-            // This for loop will go over all of the products in the database and get the one with the matching and put the product into
+            // This for loop will go over all of the products in the database and get the one with the matching name and put the product into
             // our product variable p
             for(int i = 0; i < database.getProductCounter(); i++)
             {
+                // This if statement is simply trying to determine where our product is in our database with the string value selection
                 if(selection == products.get(i).getProductName())
                 {
+                    // If this executes then we found our product
                     p = products.get(i);
+
+                    // Once it has found it then tell dynamic main to switch panels to the ProductGUI panel
+                    ChangeEvent selectSelected = new ChangeEvent(this);
+                    for(ChangeListener listener: selectListener)
+                    {
+                        listener.stateChanged(selectSelected);
+                    }
                 }
-            }
-
-            System.out.println(p.getProductName());
-
-            ChangeEvent selectSelected = new ChangeEvent(this);
-            for(ChangeListener listener: selectListener)
-            {
-                listener.stateChanged(selectSelected);
             }
         }
     }
 
 
+    /**
+     * This function is only when user selects cancel which then takes them back to the tagMenu panel
+     */
     private void updateCancel()
     {
+        // Updates dynamic main to switch the panel to tagMenu from productSelection
         ChangeEvent cancelSelected = new ChangeEvent(this);
         for(ChangeListener listener: cancelListener)
         {
@@ -156,16 +173,26 @@ public class productSelection extends JPanel
         }
     }
 
+    /**
+     * This function is used to listen for the cancel button and adds newListener to the ArrayList cancelListener
+     */
     public void addCancelListener(ChangeListener newListener)
     {
         cancelListener.add(newListener);
     }
 
+    /**
+     * This function is used to listen for the select button and adds newListener to the ArrayList selectListener
+     */
     public void addSelectListener(ChangeListener newListener)
     {
-        cancelListener.add(newListener);
+        selectListener.add(newListener);
     }
 
+    /**
+     * This function is used to get our Product which is needed for ProductGUI
+     * @return returns our selected product from the productSelection screen
+     */
     public Product getP()
     {
         return p;
