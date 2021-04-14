@@ -166,22 +166,22 @@ public class MapEditor extends MapTemplate
     /**
      * Radio Button used to select the "Blank Tile" grid tile type. The default selection for the radio buttons.
      */
-    final JRadioButton blankTile = new JRadioButton("Blank Tile", true);
+    private final JRadioButton blankTile = new JRadioButton("Blank Tile", true);
 
     /**
      * Radio Button used to select the "Product Shelf" grid tile type.
      */
-    final JRadioButton shelfTile = new JRadioButton("Product Shelf");
+    private final JRadioButton shelfTile = new JRadioButton("Product Shelf");
 
     /**
      * Radio Button used to select the "Path" grid tile type.
      */
-    final JRadioButton aisleTile = new JRadioButton("Path");
+    private final JRadioButton aisleTile = new JRadioButton("Path");
 
     /**
      * Radio Button used to select the "Wall" grid tile type.
      */
-    final JRadioButton wallTile = new JRadioButton("Wall");
+    private final JRadioButton wallTile = new JRadioButton("Wall");
 
     /**
      * Function used to determine if user clicks on back
