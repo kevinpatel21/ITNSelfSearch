@@ -15,9 +15,21 @@ public class adminView extends JPanel
     private JButton databaseImportButton;
     private JButton homeButton;
     private JLabel adminScreen;
-    private final ArrayList<ChangeListener> mainListener = new ArrayList<ChangeListener>();//ArrayList of listeners
-    private final ArrayList<ChangeListener> mapListener = new ArrayList<ChangeListener>();//ArrayList of listeners
-    private final ArrayList<ChangeListener> importListener = new ArrayList<ChangeListener>();//ArrayList of listeners
+
+    /**
+     * ArrayList of listeners that are notified if user clicks on the main menu button.
+     */
+    private final ArrayList<ChangeListener> mainListener = new ArrayList<ChangeListener>();
+
+    /**
+     * ArrayList of listeners that are notified if user clicks on the map editor button.
+     */
+    private final ArrayList<ChangeListener> mapListener = new ArrayList<ChangeListener>();
+
+    /**
+     * ArrayList of listeners that are notified if user clicks on the import button.
+     */
+    private final ArrayList<ChangeListener> importListener = new ArrayList<ChangeListener>();
 
     /**
      * This panel creates the GUI implementation of adminView

@@ -105,6 +105,7 @@ public class tagMenuController
 
     /**
      * This function is used to listen for the back button and adds newListener to the ArrayList backListener
+     * @param newListener listener to add to the backListener ArrayList
      */
     public void addBackListener(ChangeListener newListener)
     {
@@ -113,6 +114,7 @@ public class tagMenuController
 
     /**
      * This function is used to listen for the Search button and adds newListener to the ArrayList searchListener
+     * @param newListener listener to add to the searchListener ArrayList
      */
     public void addSearchListener(ChangeListener newListener)
     {
@@ -129,6 +131,10 @@ public class tagMenuController
         return retrievedProducts;
     }
 
+    /**
+     * Function to get the list of selected tags
+     * @return A list of selected tags
+     */
     public ArrayList<String> getInputTags()
     {
         return inputTags;

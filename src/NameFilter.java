@@ -1,6 +1,9 @@
 import java.lang.*;
 import java.util.ArrayList;
 
+/**
+ * Class that is used to search for a product in the database using the product's name.
+ */
 public class NameFilter
 {
     /**

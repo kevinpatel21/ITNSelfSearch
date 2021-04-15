@@ -17,6 +17,10 @@ public class DynamicMain extends JFrame{
     //private ImportController testControl = new ImportController(false);
     final ArrayList<ChangeListener> importListeners = new ArrayList<ChangeListener>();//ArrayList of listeners
 
+    /**
+     * Constructor for DynamicMain
+     * @param inputActiveDatabase A database for the program to use
+     */
     public DynamicMain(ActiveDatabase inputActiveDatabase){
         testDatabase = inputActiveDatabase;
 
@@ -296,6 +300,10 @@ public class DynamicMain extends JFrame{
         });
     }
 
+    /**
+     * Method to get the ActiveDatabase being used by the program.
+     * @return The ActiveDatabase being used by the program.
+     */
     public ActiveDatabase getTestDatabase() {
         return testDatabase;
     }

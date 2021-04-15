@@ -4,7 +4,9 @@ import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * Class responsible for controlling the functionality of the userView panel.
+ */
 public class userController {
 
     Scanner passwordScanner = new Scanner(System.in);
@@ -20,12 +22,10 @@ public class userController {
     private final ArrayList<ChangeListener> backListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**
-     * Compares the input password to the
-     * arraylist of correct passwords and returns
-     * true if it matches
-     * @param inputPassword
-     * @param correctPassword
-     * @return
+     * Method to verify if the password entered by the user is correct.
+     * @param inputPassword The password entered by the user
+     * @param correctPassword ArrayList of correct passwords
+     * @return True if the inputted password matches one of the correct passwords, false otherwise.
      */
     public boolean verifyPassword(String inputPassword , ArrayList<String> correctPassword)
     {
@@ -52,23 +52,40 @@ public class userController {
 
         return adminMode;
     }
+
+    /**
+     * Constructor for userController
+     * @param v userView panel for userController to use
+     * @param data database for userController to use.
+     */
     public userController(userView v, Database data)
     {
         uView = v;
         d = data;
     }
 
+    /**
+     * Method to initialize the userController.
+     */
     public void initController()
     {
         uView.getEnterButton().addActionListener(e -> verifyPassword(uView.getUserPassword().getText(), d.getPasswords()));
         uView.getBackButton().addActionListener(e -> updateBackListener());
     }
 
+    /**
+     * Function used to determine if user clicks on the admin login button
+     * @param newListener an input listener
+     */
     public void addAdminLoginListener(ChangeListener newListener)
     {
         adminLoginListener.add(newListener);
     }
 
+    /**
+     * Function used to determine if user clicks on back
+     * @param newListener an input listener
+     */
     public void addBackListener(ChangeListener newListener)
     {
         backListener.add(newListener);

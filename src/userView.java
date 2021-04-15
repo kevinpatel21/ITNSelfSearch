@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Class that manages the GUI used to input a password to enter admin mode.
+ */
 public class userView extends JPanel
 {
     private JLabel password;
@@ -10,7 +13,9 @@ public class userView extends JPanel
     private JButton backButton;
 
 
-
+    /**
+     * Constructor for userView class
+     */
     public userView()
     {
         createPanel();
@@ -86,21 +91,37 @@ public class userView extends JPanel
 
     }
 
+    /**
+     * Method to get the enter button
+     * @return the enter password button
+     */
     public JButton getEnterButton()
     {
         return enterButton;
     }
 
+    /**
+     * Method to get the back button
+     * @return the back button
+     */
     public JButton getBackButton()
     {
         return backButton;
     }
 
+    /**
+     * Method to set the admin login password
+     * @param userPassword The admin login password
+     */
     public void setUserPassword(JPasswordField userPassword)
     {
         this.userPassword = userPassword;
     }
 
+    /**
+     * Method to get the text field used to store the entered password
+     * @return The text field used to store the entered password
+     */
     public JTextField getUserPassword()
     {
         return userPassword;

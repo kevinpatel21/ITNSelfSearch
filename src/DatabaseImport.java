@@ -34,7 +34,10 @@ public class DatabaseImport {
      * Stores admin passwords
      * NOTE: Does not currently store item location...
      * @param databaseProducts productCatalogue ArrayList from Database Object
+     * @param storeTags storeTags ArrayList from Database Object
      * @param databasePasswords adminPasswords ArrayList from Database Object
+     * @param kioskCoordinate kioskLocation ArrayList from Database Object
+     * @param mapData storeMap ArrayList from Database Object
      */
     public void importDatabase(ArrayList<Product> databaseProducts, ArrayList<String> storeTags, ArrayList<String> databasePasswords, ArrayList<Coordinate> kioskCoordinate, ArrayList<String> mapData){
         databasePasswords.clear();//Ensures that all previous passwords are erased

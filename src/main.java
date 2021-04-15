@@ -6,9 +6,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Main function used to initialize the frame of software
+ * Main function used to initialize the frame of the software
  */
 public class main {
+    /**
+     * Main function used to initialize the frame of the software
+     * @param args Command Line arguments, not used by the program.
+     */
     public static void main(String[] args){
 
         ImportController testControl = new ImportController(true);

@@ -8,7 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
+/**
+ * Class that manages the GUI used to display product information.
+ */
 public class ProductGUI extends JPanel {
 
     private String productName;
@@ -17,6 +19,12 @@ public class ProductGUI extends JPanel {
     private JTextArea databasePreview;
     final ArrayList<ChangeListener> mainlistener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
+    /**
+     * Constructor for ProductGUI.
+     * @param inputProduct The product that the GUI is displaying the information of.
+     * @param kioskCoordinate Coordinates of the kiosk.
+     * @param storeMap A map of the store.
+     */
     public ProductGUI(Product inputProduct, Coordinate kioskCoordinate, String storeMap) {
 
 

@@ -12,6 +12,7 @@ public class DatabaseDisplay extends JPanel {
     //Constructors
     /**
      * Constructor for DatabaseDisplay
+     * @param inputDatabase The database that DatabaseDisplay is displaying the contents of.
      */
     public DatabaseDisplay(Database inputDatabase){
         //Extracting data from input database and adding it to a JTextArea

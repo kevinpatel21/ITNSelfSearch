@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * Class used to store product data.
+ */
 public class Product implements Cloneable {
     private String productName;
     private Double productPrice;
@@ -11,8 +14,8 @@ public class Product implements Cloneable {
      * sets product name and price as well as create
      * arrayList for product tags and and new coordinate
      * for product location
-     * @param inputName
-     * @param inputPrice
+     * @param inputName The name of the product.
+     * @param inputPrice The price of the product.
      */
     public Product(String inputName, double inputPrice) {
         productName = inputName;
@@ -67,7 +70,7 @@ public class Product implements Cloneable {
 
     /**
      * sets product tags when provided an arraylist
-     * @param inputTags
+     * @param inputTags An ArrayList of tags to add to the product.
      */
     public void setProductTags(ArrayList<String> inputTags) {
         productTags = (ArrayList<String>) inputTags.clone();
@@ -75,7 +78,7 @@ public class Product implements Cloneable {
 
     /**
      * sets a single tag when provided one string input
-     * @param inputTag
+     * @param inputTag The tag to add to the product
      */
     public void setProductTag(String inputTag) {
         productTags.add(inputTag);
@@ -92,7 +95,7 @@ public class Product implements Cloneable {
 
     /**
      * sets the product name
-     * @param inputName
+     * @param inputName The name of the product.
      */
     public void setProductName(String inputName) {
         productName = inputName;
@@ -100,7 +103,7 @@ public class Product implements Cloneable {
 
     /**
      * sets the product price
-     * @param inputPrice
+     * @param inputPrice The price of the product.
      */
     public void setProductPrice(Double inputPrice) {
         productPrice = inputPrice;
@@ -108,7 +111,7 @@ public class Product implements Cloneable {
 
     /**
      * sets the product location
-     * @param inputLocation
+     * @param inputLocation The coordinates of the product.
      */
     public void setProductLocation(Coordinate inputLocation)
     {
@@ -135,11 +138,19 @@ public class Product implements Cloneable {
         System.out.println("Product Location: " + productLocation);
     }
 
+    /**
+     * Method to set the number of tags a product has.
+     * The number of tags is set using the size of the ArrayList used to store the product's tags.
+     */
     public void setProductTagNumber()
     {
         productTagNumber = productTags.size();
     }
 
+    /**
+     * Method to get the number of tags a product has.
+     * @return The number of tags a product has.
+     */
     public int getProductTagNumber()
     {
         return productTagNumber;

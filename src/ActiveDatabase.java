@@ -8,11 +8,15 @@ import java.util.ArrayList;
  */
 public class ActiveDatabase implements Cloneable{
     //Attributes
-    private ArrayList<Database> activeDatabase;//Stores a database for software to use
+    /**
+     * Stores a database for software to use
+     */
+    private ArrayList<Database> activeDatabase;
 
     //Constructors
     /**
-     * Constructor for ActiveDatabase class, no default password required
+     * Constructor for ActiveDatabase class, no default password required.
+     * Creates a new database to use as the active database.
      */
     ActiveDatabase(){
         activeDatabase = new ArrayList<Database>();
@@ -20,7 +24,9 @@ public class ActiveDatabase implements Cloneable{
     }
 
     /**
-     * Constructor for ActiveDatabase class, no default password required
+     * Constructor for ActiveDatabase class, no default password required.
+     * Uses an existing database as the active database.
+     * @param inputDatabase Database to use as the active database
      */
     ActiveDatabase(Database inputDatabase){
         activeDatabase = new ArrayList<Database>();
@@ -108,6 +114,7 @@ public class ActiveDatabase implements Cloneable{
     //Functionality
     /**
      * Function responsible for updating the database
+     * @param newDatabase The updated database
      */
     public void updateDatabase(Database newDatabase){
         activeDatabase.clear();

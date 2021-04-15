@@ -11,7 +11,6 @@ import javax.swing.event.ChangeListener;
  */
 public class MapEditor extends MapTemplate
 {
-    private final ArrayList<ChangeListener> backListener = new ArrayList<ChangeListener>();//ArrayList of listeners
     /**
      * Constructor for the map editor GUI
      */
@@ -182,6 +181,11 @@ public class MapEditor extends MapTemplate
      * Radio Button used to select the "Wall" grid tile type.
      */
     private final JRadioButton wallTile = new JRadioButton("Wall");
+
+    /**
+     * ArrayList of listeners that are notified if user clicks on the back button.
+     */
+    private final ArrayList<ChangeListener> backListener = new ArrayList<ChangeListener>();
 
     /**
      * Function used to determine if user clicks on back

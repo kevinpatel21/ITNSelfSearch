@@ -27,8 +27,12 @@ public class homeController
     private final ArrayList<ChangeListener> adminListener = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**
-     * Constructor for homeController when you create the object for it you will initalize variables needed and go to the initView()
+     * Constructor for homeController when you create the object for it you will initialize variables needed and go to the initView()
      * We need access to homeView, nameFilter, TagFilter, and database
+     * @param v homeView panel for homeController to use.
+     * @param nf nameFilter panel for homeController to use.
+     * @param tf tagFilter panel for homeController to use.
+     * @param d database for homeController to use.
      */
     public homeController(homeView v, NameFilter nf, TagFilter tf, Database d)
     {
@@ -118,7 +122,9 @@ public class homeController
     }
 
     /**
-     * Returns retrieved product for ProductGUI to display
+     * Returns the product retrieved when searching by product name.
+     * Used by ProductGUI to get the product to display.
+     * @return The product retrieved when searching by product name.
      */
     public Product getRetrievedProduct(){
         return retrievedProduct;
@@ -151,6 +157,7 @@ public class homeController
 
     /**
      * Function used to update database in main menu
+     * @param inputDatabase The updated database
      */
     public void refreshDatabase(Database inputDatabase){
         database = inputDatabase;

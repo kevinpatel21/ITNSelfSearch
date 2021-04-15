@@ -23,6 +23,7 @@ public class ImportController extends JFrame{
     //Constructors
     /**
      * Constructor for ImportController
+     * @param firstImport Boolean used to determine if this was the first import of the software's runtime
      */
     public ImportController(boolean firstImport){
         //Setting up frame design/layout

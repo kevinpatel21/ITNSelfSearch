@@ -12,11 +12,30 @@ import java.util.Map;
  */
 public class Database implements Cloneable{
     //Attributes
-    private ArrayList<Product> productCatalogue;//ArrayList that stores Products
-    private ArrayList<String> adminPasswords;//ArrayList that stores passwords
-    private ArrayList<String> storeMap;//Map of the store
-    private ArrayList<Coordinate> kioskLocation;//Coordinate of kiosk
-    private ArrayList<String> storeTags;//ArrayList that imported store product tags used for tag search
+    /**
+     * ArrayList that stores Products
+     */
+    private ArrayList<Product> productCatalogue;
+
+    /**
+     * ArrayList that stores passwords
+     */
+    private ArrayList<String> adminPasswords;
+
+    /**
+     * ArrayList that stores the map of the store
+     */
+    private ArrayList<String> storeMap;
+
+    /**
+     * ArrayList that stores the coordinates of the kiosk
+     */
+    private ArrayList<Coordinate> kioskLocation;
+
+    /**
+     * ArrayList that imported store product tags used for tag search
+     */
+    private ArrayList<String> storeTags;
 
 
     //Constructors
@@ -193,6 +212,7 @@ public class Database implements Cloneable{
     /**
      * Function used to check if Product searched by name is in database
      * Must be ran BEFORE retrieveByTags method is called
+     * @param inputName The name of the product that the function is searching for
      * @return Returns true if product was found, false if not
      */
     public boolean validProductName(String inputName){

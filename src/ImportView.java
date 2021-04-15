@@ -92,14 +92,17 @@ public class ImportView extends JPanel {
 
     //Sets
     /**
-     * Adds a listener to the class
+     * Method used to register a listener for importing a database.
+     * Used to notify listeners when a database import was successful.
+     * @param newListener an input listener
      */
     public void addChangeListener(ChangeListener newListener){
         listeners.add(newListener);
     }
 
     /**
-     * Adds a listener to the class
+     * Function used to determine if user clicks on back
+     * @param newListener an input listener
      */
     public void addBackListener(ChangeListener newListener){
         backListeners.add(newListener);
@@ -115,6 +118,7 @@ public class ImportView extends JPanel {
     //Gets
     /**
      * Gets the database that stores the contents from the importation process
+     * @return The database that stores the contents from the importation process
      */
     public Database getNewImport(){
         return newDatabase.clone();

@@ -4,6 +4,9 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Class that manages the GUI used to provide a list of products that are related to the tags the user has selected.
+ */
 public class productSelection extends JPanel
 {
     // Create our JPanels that we need
@@ -38,6 +41,7 @@ public class productSelection extends JPanel
 
     /**
      * This is the constructor for our productSelection GUI
+     * @param tC tagMenuController for productSelection to use
      * @param pList it takes in the ArrayList productList
      * @param d it takes in the Database d
      */
@@ -195,6 +199,7 @@ public class productSelection extends JPanel
 
     /**
      * This function is used to listen for the cancel button and adds newListener to the ArrayList cancelListener
+     * @param newListener listener to add to the cancelListener ArrayList
      */
     public void addCancelListener(ChangeListener newListener)
     {
@@ -203,6 +208,7 @@ public class productSelection extends JPanel
 
     /**
      * This function is used to listen for the select button and adds newListener to the ArrayList selectListener
+     * @param newListener listener to add to the selectListener ArrayList
      */
     public void addSelectListener(ChangeListener newListener)
     {
@@ -218,6 +224,10 @@ public class productSelection extends JPanel
         return p;
     }
 
+    /**
+     * Method to get the text area used to list the selected tags
+     * @return The text used to list the selected tags
+     */
     public JTextArea getTagsSelected()
     {
         return tagsSelected;

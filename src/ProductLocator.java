@@ -13,6 +13,8 @@ public class ProductLocator extends MapTemplate
 {
     /**
      * Constructor for the product locator GUI
+     * @param kioskCoordinate The coordinates of the kiosk.
+     * @param productCoordinate The coordinates of the product.
      */
     public ProductLocator(Coordinate kioskCoordinate, Coordinate productCoordinate)
     {

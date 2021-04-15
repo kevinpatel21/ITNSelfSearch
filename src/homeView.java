@@ -112,22 +112,42 @@ public class homeView extends JPanel
 
     // The rest of the functions below are just getters that are used for our GUI components that are needed for homeController
 
+    /**
+     * Method to get the text field used as the product search bar
+     * @return The text field used as the product search bar
+     */
     public JTextField getUserText() {
         return userText;
     }
 
+    /**
+     * Method to get the name filter toggle button
+     * @return The name filter toggle button
+     */
     public JToggleButton getNameFilterToggle() {
         return nameFilterToggle;
     }
 
+    /**
+     * Method to get the tag search menu button
+     * @return The tag search menu button
+     */
     public JButton getTagMenuButton() {
         return tagMenuButton;
     }
 
+    /**
+     * Method to get the search by name button
+     * @return The search by name button
+     */
     public JButton getSearchButton() {
         return searchButton;
     }
 
+    /**
+     * Method to get the admin mode button
+     * @return The admin mode button
+     */
     public JButton getAdminButton() {
         return adminButton;
     }
