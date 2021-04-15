@@ -91,7 +91,14 @@ public class GridTile extends JButton
     public void paintComponent(Graphics graphics)
     {
         Graphics2D tileGraphics = (Graphics2D)graphics;
-        tileGraphics.setColor(tileColors[getGridState()]);
+
+        // Use the current grid state to set the color of the tile
+        switch (gridState)
+        {
+            case 0, 1, 2 ,3 ,4, 5, 6 -> tileGraphics.setColor(tileColors[getGridState()]);
+            default -> tileGraphics.setColor(tileColors[0]);
+        }
+
         tileGraphics.fillRect(0, 0, getWidth(), getHeight());
     }
 

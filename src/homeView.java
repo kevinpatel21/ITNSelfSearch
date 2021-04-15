@@ -15,8 +15,6 @@ public class homeView extends JPanel
     private JTextField userText; //
     private JLabel ITN; //
     private JButton adminButton; //
-    private String text; //
-    private JFrame frame; //
 
     /**
      * This function creates the frame and all of the settings associated with the frame and calls addComponents where

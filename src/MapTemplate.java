@@ -124,19 +124,19 @@ public abstract class MapTemplate extends JPanel
     /**
      * Variable used to define the size of the map grid's X (Horizontal) axis
      */
-    final int mapSizeX = 12;
+    protected final int mapSizeX = 12;
 
 
     /**
      * Variable used to define the size of the map grid's Y (Vertical) axis
      */
-    final int mapSizeY = 12;
+    protected final int mapSizeY = 12;
 
 
     /**
      * 2D Array used to store the map grid
      */
-    final GridTile[][] gridArray = new GridTile[mapSizeX][mapSizeY];
+    protected final GridTile[][] gridArray = new GridTile[mapSizeX][mapSizeY];
 
 
     /**

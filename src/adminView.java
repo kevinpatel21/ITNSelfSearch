@@ -15,7 +15,6 @@ public class adminView extends JPanel
     private JButton databaseImportButton;
     private JButton homeButton;
     private JLabel adminScreen;
-    private JPanel adminPanel;
     private final ArrayList<ChangeListener> mainListener = new ArrayList<ChangeListener>();//ArrayList of listeners
     private final ArrayList<ChangeListener> mapListener = new ArrayList<ChangeListener>();//ArrayList of listeners
     private final ArrayList<ChangeListener> importListener = new ArrayList<ChangeListener>();//ArrayList of listeners
