@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * This class is responsible controlling which panel is displayed to the user.
+ * This class also serves the main frame for the software.
+ */
 public class DynamicMain extends JFrame{
     //Creating a database for the software to use
     private ActiveDatabase testDatabase;
@@ -290,17 +294,6 @@ public class DynamicMain extends JFrame{
 
             }
         });
-        /**
-         * End of main
-         */
-    }
-
-    public int getProductSize(){
-        return testDatabase.getProducts().size();
-    }
-
-    public void addImportedListener(ChangeListener newListener){
-        importListeners.add(newListener);
     }
 
     public ActiveDatabase getTestDatabase() {

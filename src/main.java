@@ -5,40 +5,25 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Main function used to initialize the frame of software
+ */
 public class main {
     public static void main(String[] args){
 
-
         ImportController testControl = new ImportController(true);
 
-
+        //Listens if an import file is added to software prior to initialization
         testControl.addFirstImportListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
+                //Setting up an ActiveDatabase and transferring it to DynamicMain
                 ActiveDatabase tempActiveDatabase = new ActiveDatabase();
                 tempActiveDatabase.updateDatabase(testControl.overrideDatabase());
                 DynamicMain newDyn = new DynamicMain(tempActiveDatabase);
                 testControl.dispose();
             }});
     }
-
-
-
-    //Test Tool Functions
-    public static ArrayList<String> createTagList (String tag1, String tag2, String tag3){
-        ArrayList<String> newTagList = new ArrayList<String>();
-
-        newTagList.add(tag1);
-        newTagList.add(tag2);
-        newTagList.add(tag3);
-
-        return (ArrayList<String>) newTagList.clone();
-    }
-
-
-
-    //"C:\\project testing ground\\src\\import.json"
-
 
 }
 
