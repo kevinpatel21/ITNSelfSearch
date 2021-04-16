@@ -128,9 +128,4 @@ public class userView extends JPanel
     {
         return userPassword;
     }
-
-    public static void main(String args[])
-    {
-        new userView();
-    }
 }
