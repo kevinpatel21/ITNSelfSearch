@@ -2,12 +2,8 @@ package itn.selfsearch.core;
 
 import itn.selfsearch.database.*;
 
-import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Main function used to initialize the frame of the software
