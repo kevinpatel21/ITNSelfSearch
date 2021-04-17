@@ -44,7 +44,7 @@ public class tagMenu extends JPanel
     /**
      * This function creates the view that you see when you go into the tag menu
      */
-    public void createPanel()
+    private void createPanel()
     {
 
         // Declare our different panels needed. We need a total of 3 buttonPanel, listPanel, and the panel that is being extended
