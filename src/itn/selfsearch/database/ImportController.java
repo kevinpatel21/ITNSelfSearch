@@ -11,6 +11,7 @@ import java.util.ArrayList;
 /**
  * Class used to mediate the importation process.
  * If the importation process was successful, class can return a copy of the imported database.
+ * Uses observer pattern
  */
 public class ImportController extends JFrame{
     //Attributes
