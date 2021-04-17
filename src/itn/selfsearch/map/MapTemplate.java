@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 /**
  * Abstract class defining common methods used by GUI panels containing maps.
+ * Uses the Observer design pattern.
  */
 public abstract class MapTemplate extends JPanel
 {

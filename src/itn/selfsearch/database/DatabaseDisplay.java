@@ -1,10 +1,5 @@
 package itn.selfsearch.database;
 
-import itn.selfsearch.core.*;
-import itn.selfsearch.database.*;
-import itn.selfsearch.search.*;
-import itn.selfsearch.map.*;
-
 import javax.swing.*;
 import java.awt.*;
 

@@ -23,7 +23,6 @@ public class ProductLocator extends MapTemplate
         // Call the constructor of the MapTemplate class to create the map grid
         super();
 
-        // DEBUG: Button to rerun the pathfinding function for testing purposes.
         JButton redrawButton = new JButton("Draw Path");
         redrawButton.addActionListener(new ActionListener()
         {
@@ -34,7 +33,6 @@ public class ProductLocator extends MapTemplate
             }
         });
         add(redrawButton, "South");
-        // END OF DEBUG CODE
     }
 
 
@@ -188,18 +186,6 @@ public class ProductLocator extends MapTemplate
                 mappingCycle = (mapSizeX * mapSizeY) + 1;
             }
         }
-
-        // DEBUG: Print the contents of the distance map to the console
-        for(int j = 0; j < mapSizeY; j++)
-        {
-            for(int i = 0; i < mapSizeX; i++)
-            {
-                //System.out.printf("%4s", distanceMap[i][j] + " ");
-            }
-            //System.out.print('\n');
-        }
-        //System.out.print('\n');
-        // END OF DEBUG CODE
     }
 
 

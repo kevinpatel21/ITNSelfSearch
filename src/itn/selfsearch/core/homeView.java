@@ -2,8 +2,6 @@ package itn.selfsearch.core;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Class that implements our GUI for the homescreen

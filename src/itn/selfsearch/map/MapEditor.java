@@ -10,6 +10,7 @@ import javax.swing.event.ChangeListener;
 
 /**
  * Class that manages the GUI used for store map creation.
+ * Uses the Observer design pattern.
  */
 public class MapEditor extends MapTemplate
 {
@@ -39,9 +40,6 @@ public class MapEditor extends MapTemplate
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                // DEBUG: Print map save data to the console
-                //System.out.println(saveMapData());
-
                 // save map to database
                 ChangeEvent saveMapAttempt = new ChangeEvent(this);
 

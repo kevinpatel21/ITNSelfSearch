@@ -5,7 +5,6 @@ import itn.selfsearch.map.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * Database is responsible for storing and sending essential information in software.
