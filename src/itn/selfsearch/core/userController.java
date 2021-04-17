@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 /**
  * Class responsible for controlling the functionality of the userView panel.
+ * This uses the Observer Design Pattern.
  */
 public class userController {
 

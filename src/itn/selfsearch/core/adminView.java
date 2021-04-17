@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 /**
  * This class is for the GUI implementation of adminView
+ * This uses the Observer design pattern
  */
 public class adminView extends JPanel
 {
