@@ -10,6 +10,7 @@ import javax.swing.event.ChangeListener;
 
 /**
  * Class that manages the GUI used for store map creation.
+ * Uses the Observer design pattern.
  */
 public class MapEditor extends MapTemplate
 {

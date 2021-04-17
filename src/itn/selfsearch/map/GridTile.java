@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Class used to create the buttons used as tiles on the map grid.
+ * Uses the Observer design pattern.
  */
 public class GridTile extends JButton
 {
