@@ -9,12 +9,12 @@ import java.awt.*;
 public class homeView extends JPanel
 {
     // Variables needed for the Swing framework to display UI to user
-    private JToggleButton nameFilterToggle; //
-    private JButton tagMenuButton; //
-    private JButton searchButton; //
-    private JTextField userText; //
-    private JLabel ITN; //
-    private JButton adminButton; //
+    private JToggleButton nameFilterToggle;
+    private JButton tagMenuButton;
+    private JButton searchButton;
+    private JTextField userText;
+    private JLabel ITN;
+    private JButton adminButton;
 
     /**
      * This function creates the frame and all of the settings associated with the frame and calls addComponents where

@@ -39,9 +39,6 @@ public class adminView extends JPanel
      */
     private void createPanel()
     {
-        // Create a new JPanel
-        //adminPanel = new JPanel();
-
         // Create the layout for the panel
         FlowLayout fl = new FlowLayout(FlowLayout.CENTER);
         this.setLayout(fl);

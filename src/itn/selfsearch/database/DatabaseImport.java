@@ -37,7 +37,6 @@ public class DatabaseImport {
      * Function used to read and parse an import JSON file, stores data into a Database Object
      * Stores Products, including name, price, and associated tags
      * Stores admin passwords
-     * NOTE: Does not currently store item location...
      * @param databaseProducts productCatalogue ArrayList from Database Object
      * @param storeTags storeTags ArrayList from Database Object
      * @param databasePasswords adminPasswords ArrayList from Database Object

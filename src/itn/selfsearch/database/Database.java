@@ -139,7 +139,7 @@ public class Database implements Cloneable{
      * @return Returns Product catalogue
      */
     public ArrayList<Product> getProductCatalogue(){
-        return (ArrayList<Product>) productCatalogue;//GOT RID OF CLONE!!!
+        return (ArrayList<Product>) productCatalogue;
     }
 
     /**
@@ -148,7 +148,7 @@ public class Database implements Cloneable{
      */
     public ArrayList<String> getPasswords(){
         return (ArrayList<String>) adminPasswords;
-    }//GOT RID OF CLONE!!!
+    }
 
     /**
      * Function used to retrieve store product tags
@@ -156,7 +156,7 @@ public class Database implements Cloneable{
      */
     public ArrayList<String> getStoreTags(){
         return (ArrayList<String>) storeTags;
-    }//GOT RID OF CLONE!!!
+    }
 
     /**
      * Function used to retrieve number of passwords in database

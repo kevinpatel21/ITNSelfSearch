@@ -20,8 +20,6 @@ import java.util.ArrayList;
 public class DynamicMain extends JFrame{
     //Creating a database for the software to use
     private ActiveDatabase testDatabase;
-    //Creating a class for importing a new database
-    //private ImportController testControl = new ImportController(false);
     final ArrayList<ChangeListener> importListeners = new ArrayList<ChangeListener>();//ArrayList of listeners
 
     /**

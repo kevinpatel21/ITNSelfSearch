@@ -13,9 +13,6 @@ import java.util.ArrayList;
  */
 public class homeController
 {
-    // This is where we would put our class variables for namefilter and tagfilter didnt include because we are not in that project
-    // private nameFilter nf
-    // private tagFilter tf
     private homeView view;
     private NameFilter namefilter;
     private TagFilter tagfilter;
@@ -92,7 +89,7 @@ public class homeController
                 }
 
             }
-            // If the userText is not found in the databse then display a JOptionPane
+            // If the userText is not found in the database then display a JOptionPane
             else if(!database.validProductName(view.getUserText().getText()))
             {
                 JOptionPane.showMessageDialog(null, "There was no product in the database with the name " + "'" +view.getUserText().getText() + "'", "Product Not Found!", JOptionPane.ERROR_MESSAGE);
