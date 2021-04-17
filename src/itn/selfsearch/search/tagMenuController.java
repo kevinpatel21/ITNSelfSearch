@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 /**
  * This class controls our buttons in tagMenu GUI
+ * This class uses the Observer design pattern
  */
 public class tagMenuController
 {

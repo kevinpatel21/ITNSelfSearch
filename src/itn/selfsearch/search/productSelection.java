@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 /**
  * Class that manages the GUI used to provide a list of products that are related to the tags the user has selected.
+ * This class uses the Observer design pattern
+ * This class uses the Decorator design pattern because of the scroll pattern
  */
 public class productSelection extends JPanel
 {

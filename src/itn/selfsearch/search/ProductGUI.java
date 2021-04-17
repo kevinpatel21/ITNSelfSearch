@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 /**
  * Class that manages the GUI used to display product information.
+ * This class uses the Observer design pattern.
  */
 public class ProductGUI extends JPanel {
 

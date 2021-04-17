@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * This class is used for the view of our tagMenu GUI
+ * This class uses the Decorator design pattern because of the scrollbar
  */
 public class tagMenu extends JPanel
 {
