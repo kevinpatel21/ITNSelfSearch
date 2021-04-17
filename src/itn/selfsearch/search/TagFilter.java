@@ -77,7 +77,7 @@ public class TagFilter
      * @param product Takes in the prduct that will go into matchingProducts ONLY IF it is not in there already it is also taken from retrieveByTags
      * @return duplicate Returns boolean duplicate. IF it is in the list then return true. IF it is NOT in the list the return false.
      */
-    public boolean checkDuplicate(ArrayList<Product> matchingProducts, Product product)
+    private boolean checkDuplicate(ArrayList<Product> matchingProducts, Product product)
     {
         boolean duplicate = false;
 
