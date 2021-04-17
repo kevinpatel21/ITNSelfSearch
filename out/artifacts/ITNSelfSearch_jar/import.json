@@ -1,0 +1,239 @@
+{
+  "products": [
+    {
+      "productName": "Pepsi",
+      "productPrice": 3.99,
+      "productLocationX": "8",
+      "productLocationY": "6",
+      "productTags": [
+        "Blue",
+        "Drink",
+        "Liquid",
+        "Carbonated"
+      ]
+    },
+    {
+      "productName": "Root Beer",
+      "productPrice": 3.99,
+      "productLocationX": "8",
+      "productLocationY": "7",
+      "productTags": [
+        "Drink",
+        "Carbonated",
+        "Liquid",
+        "Brown"
+      ]
+    },
+    {
+      "productName": "Coke",
+      "productPrice": 3.99,
+      "productLocationX": "8",
+      "productLocationY": "8",
+      "productTags": [
+        "Drink",
+        "Carbonated",
+        "Liquid",
+        "Brown"
+      ]
+    },
+    {
+      "productName": "Apple",
+      "productPrice": 1.99,
+      "productLocationX": "9",
+      "productLocationY": "1",
+      "productTags": [
+        "Red",
+        "Fruit",
+        "Food"
+      ]
+    },
+    {
+      "productName": "Banana",
+      "productPrice": 0.99,
+      "productLocationX": "9",
+      "productLocationY": "2",
+      "productTags": [
+        "Yellow",
+        "Fruit",
+        "Food"
+      ]
+    },
+    {
+      "productName": "Blueberries",
+      "productPrice": 3.44,
+      "productLocationX": "9",
+      "productLocationY": "3",
+      "productTags": [
+        "Food",
+        "Fruit",
+        "Blue",
+      ]
+    },
+    {
+      "productName": "Cheese Pizza",
+      "productPrice": 7.99,
+      "productLocationX": "1",
+      "productLocationY": "2",
+      "productTags": [
+        "Yellow",
+        "Food",
+        "Frozen"
+      ]
+    },
+    {
+      "productName": "Pepperoni Pizza",
+      "productPrice": 9.99,
+      "productLocationX": "1",
+      "productLocationY": "3",
+      "productTags": [
+        "Yellow",
+        "Food",
+        "Frozen",
+        "Meat"
+      ]
+    },
+    {
+      "productName": "Meat Balls",
+      "productPrice": 5.99,
+      "productLocationX": "1",
+      "productLocationY": "4",
+      "productTags": [
+        "Brown",
+        "Food",
+        "Frozen"
+      ]
+    },
+    {
+      "productName": "Bread",
+      "productPrice": 2.99,
+      "productLocationX": "1",
+      "productLocationY": "9",
+      "productTags": [
+        "Soft",
+        "Food"
+      ]
+    },
+    {
+      "productName": "Milk",
+      "productPrice": 1.99,
+      "productLocationX": "4",
+      "productLocationY": "4",
+      "productTags": [
+        "Food",
+        "Cold",
+        "White",
+        "Liquid"
+      ]
+    },
+    {
+      "productName": "Orange Juice",
+      "productPrice": 3.99,
+      "productLocationX": "4",
+      "productLocationY": "5",
+      "productTags": [
+        "Food",
+        "Cold",
+        "Orange",
+        "Liquid"
+      ]
+    },
+    {
+      "productName": "iPhone SE",
+      "productPrice": 199.99,
+      "productLocationX": "7",
+      "productLocationY": "3",
+      "productTags": [
+        "Appliance",
+        "Black",
+        "Electronic"
+      ]
+    },
+    {
+      "productName": "Airpods",
+      "productPrice": 150.99,
+      "productLocationX": "7",
+      "productLocationY": "4",
+      "productTags": [
+        "Appliance",
+        "Electronic",
+        "Headphones",
+        "White"
+      ]
+    },
+    {
+      "productName": "TCL 50 inch TV",
+      "productPrice": 299.99,
+      "productLocationX": "7",
+      "productLocationY": "5",
+      "productTags": [
+        "Electronic",
+        "Smart TV",
+        "4K",
+        "Flat Screen"
+      ]
+    },
+    {
+      "productName": "Apple Watch",
+      "productPrice": 199.99,
+      "productLocationX": "7",
+      "productLocationY": "6",
+      "productTags": [
+        "Appliance",
+        "Electronic",
+        "White",
+        "Black"
+      ]
+    },
+    {
+      "productName": "Playstation 5",
+      "productPrice": 549.99,
+      "productLocationX": "7",
+      "productLocationY": "8",
+      "productTags": [
+        "Electronic",
+        "White",
+        "Console",
+        "Gaming"
+      ]
+    },
+  ],
+
+  "adminPasswords": [
+    "Harrison",
+    "Kevin",
+    "Mike",
+    "Bradley"
+  ],
+
+  "storeTags": [
+    "Blue",
+    "Drink",
+    "Liquid",
+    "Carbonated",
+    "Brown",
+    "Red",
+    "Fruit",
+    "Food",
+    "Yellow",
+    "Blue",
+    "Frozen",
+    "Meat",
+    "Soft",
+    "Cold",
+    "White",
+    "Orange",
+    "Appliance",
+    "Black",
+    "Electronic",
+    "Headphones",
+    "Smart TV",
+    "4K",
+    "Flat Screen",
+    "Console",
+    "Gaming",
+  ],
+
+  "kioskLocationX": "8",
+  "kioskLocationY": "10",
+  "mapData": "3_2_2_2_2_2_2_2_2_2_2_2_3_2_3_3_3_3_2_3_3_3_2_1_3_2_3_2_2_2_2_2_2_3_2_2_3_2_3_2_2_2_2_1_2_3_1_2_3_2_3_2_2_2_2_1_2_3_2_2_3_2_3_2_2_2_2_1_2_3_2_1_3_2_2_2_1_1_1_1_1_3_2_2_3_2_3_2_2_2_2_2_2_3_3_2_3_2_3_3_3_3_3_3_2_2_2_2_3_2_2_2_2_2_2_3_3_3_2_3_3_3_3_3_3_3_2_2_2_2_2_3_3_2_2_2_2_3_3_3_3_3_3_3_*"
+}
