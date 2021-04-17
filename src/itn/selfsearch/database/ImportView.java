@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 /**
  * Responsible for creating a panel that searches for an import file
+ * Uses observer patterns
  */
 public class ImportView extends JPanel {
     //Attributes

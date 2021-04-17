@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * Updates database
  * Returns a copy of database to observe products within
  * Display core database contents
+ * Uses composite pattern
  */
 public class ActiveDatabase implements Cloneable{
     //Attributes

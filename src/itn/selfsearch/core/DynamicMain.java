@@ -15,6 +15,7 @@ import java.util.ArrayList;
 /**
  * This class is responsible controlling which panel is displayed to the user.
  * This class also serves the main frame for the software.
+ * Uses observer pattern
  */
 public class DynamicMain extends JFrame{
     //Creating a database for the software to use

@@ -13,6 +13,7 @@ import java.util.Iterator;
 
 /**
  * DatabaseImport is responsible for saving Product data from a JSON file into a Database Object
+ * Uses iterator design
  */
 public class DatabaseImport {
     //Attributes

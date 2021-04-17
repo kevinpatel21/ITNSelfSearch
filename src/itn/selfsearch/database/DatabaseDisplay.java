@@ -5,6 +5,7 @@ import java.awt.*;
 
 /**
  * Responsible for creating a panel that contains the contents of an inputted database
+ * Uses decorator design pattern
  */
 public class DatabaseDisplay extends JPanel {
     //Attributes
